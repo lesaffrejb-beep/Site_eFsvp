@@ -128,141 +128,36 @@ if (heroScroll) {
   });
 }
 
-// Typewriter effect for hero tagline
-const typewriterLines = document.querySelectorAll('.typewriter-line');
-
-if (typewriterLines.length > 0) {
-  gsap.fromTo(
-    typewriterLines,
-    { opacity: 0, y: 20 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      stagger: 0.3,
-      delay: 0.5,
-      ease: 'power2.out',
-    }
-  );
-}
+// Pas d'effet typewriter - sobre
+// Les lignes apparaissent naturellement
 
 // ============================================
-// 4. SCROLL-TRIGGERED ANIMATIONS
+// 4. SCROLL-TRIGGERED ANIMATIONS (Sobre)
 // ============================================
-// Fade in elements on scroll
+// Fade in elements on scroll - minimal
 gsap.utils.toArray('[data-scroll]').forEach((element) => {
   gsap.fromTo(
     element,
     {
       opacity: 0,
-      y: 50,
+      y: 12,                      // Mouvement sobre (12px au lieu de 50px)
     },
     {
       opacity: 1,
       y: 0,
-      duration: 0.8,
-      ease: 'power2.out',
+      duration: 0.22,             // Rapide et sobre
+      ease: 'cubic-bezier(0.22, 0.9, 0.24, 1)',
       scrollTrigger: {
         trigger: element,
         start: 'top 85%',
-        toggleActions: 'play none none reverse',
+        toggleActions: 'play none none none',  // Pas de reverse
       },
     }
   );
 });
 
-// Bento Grid items animation
-gsap.utils.toArray('.bento-item').forEach((item, index) => {
-  gsap.fromTo(
-    item,
-    {
-      opacity: 0,
-      y: 40,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      delay: index * 0.1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.bento-grid',
-        start: 'top 75%',
-        toggleActions: 'play none none none',
-      },
-    }
-  );
-});
-
-// Service cards stagger animation
-gsap.utils.toArray('.service-card').forEach((card, index) => {
-  gsap.fromTo(
-    card,
-    {
-      opacity: 0,
-      y: 40,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      delay: index * 0.15,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.services__grid',
-        start: 'top 75%',
-        toggleActions: 'play none none none',
-      },
-    }
-  );
-});
-
-// Portfolio cards animation
-gsap.utils.toArray('.portfolio-card').forEach((card, index) => {
-  gsap.fromTo(
-    card,
-    {
-      opacity: 0,
-      scale: 0.9,
-      y: 30,
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      duration: 0.5,
-      delay: index * 0.1,
-      ease: 'back.out(1.2)',
-      scrollTrigger: {
-        trigger: '.portfolio__grid',
-        start: 'top 75%',
-        toggleActions: 'play none none none',
-      },
-    }
-  );
-});
-
-// Process timeline progressive reveal
-gsap.utils.toArray('.process__step').forEach((step, index) => {
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: step,
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-    },
-  });
-
-  tl.fromTo(
-    step.querySelector('.process__step-number'),
-    { scale: 0, rotation: -180 },
-    { scale: 1, rotation: 0, duration: 0.6, ease: 'back.out(2)' }
-  ).fromTo(
-    step.querySelector('.process__step-content'),
-    { opacity: 0, x: -30 },
-    { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out' },
-    '-=0.3'
-  );
-});
+// Désactivation des animations complexes - design sobre
+// (Bento, Service, Portfolio, Process utilisent juste [data-scroll] ci-dessus)
 
 // ============================================
 // 5. AUDIO PLAYERS (Placeholder - WaveSurfer would be here)
@@ -646,7 +541,7 @@ if (contactForm) {
       // Reset form
       contactForm.reset();
       counter.textContent = '0/500';
-      budgetValue.textContent = '~3 500€';
+      budgetValue.textContent = '~10 000€';
     } catch (error) {
       console.error('Form submission error:', error);
       alert('Une erreur est survenue. Veuillez réessayer.');
@@ -733,23 +628,9 @@ if (backToTop) {
 }
 
 // ============================================
-// 12. PARALLAX EFFECTS
+// 12. PARALLAX EFFECTS (Désactivé - sobre)
 // ============================================
-// Hero video parallax
-const heroVideo = document.querySelector('.hero__video-container');
-
-if (heroVideo) {
-  gsap.to(heroVideo, {
-    yPercent: 30,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: true,
-    },
-  });
-}
+// Pas de parallax - design sobre
 
 // ============================================
 // 13. PRELOADER
@@ -771,14 +652,7 @@ window.addEventListener('load', () => {
 
     document.body.classList.add('loaded');
 
-    // Trigger initial animations
-    gsap.from('.hero__content', {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      ease: 'power2.out',
-      delay: 0.3,
-    });
+    // Pas d'animation hero - sobre
   }, 800); // 800ms minimum display time
 });
 
