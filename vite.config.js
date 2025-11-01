@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 
 export default defineConfig({
+  base: './',  // Chemins relatifs pour GitHub Pages
   root: '.',
   publicDir: 'public',
   build: {
