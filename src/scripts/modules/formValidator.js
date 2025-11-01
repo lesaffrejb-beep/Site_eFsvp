@@ -132,7 +132,7 @@ export class FormValidator {
     // Check each rule
     for (const rule of rules) {
       let isValid = true;
-      let errorMessage = rule.message;
+      const errorMessage = rule.message;
 
       switch (rule.type) {
         case 'required':
