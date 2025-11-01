@@ -17,12 +17,15 @@ gsap.registerPlugin(ScrollTrigger);
 // ============================================
 // 1. SMOOTH SCROLL (Lenis)
 // ============================================
+// Detect mobile for performance optimizations
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
 const lenis = new Lenis({
-  duration: 1.2,
+  duration: isMobile ? 0.8 : 1.2, // Faster on mobile
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   orientation: 'vertical',
   gestureOrientation: 'vertical',
-  smoothWheel: true,
+  smoothWheel: !isMobile, // Disable smooth wheel on mobile
   wheelMultiplier: 1,
   smoothTouch: false,
   touchMultiplier: 2,
@@ -299,9 +302,86 @@ class AudioPlayerManager {
       this.currentlyPlaying = button;
       console.log(`Playing: ${audioId}`);
 
+      // Show fallback message for demo
+      this.showAudioFallback(button, audioId);
+
       // In production, initialize WaveSurfer here:
       // this.initWaveform(audioId);
     }
+  }
+
+  showAudioFallback(button, audioId) {
+    // Create temporary message overlay
+    const parent = button.closest('.bento-item');
+    if (!parent) return;
+
+    let fallback = parent.querySelector('.audio-fallback');
+
+    if (!fallback) {
+      fallback = document.createElement('div');
+      fallback.className = 'audio-fallback';
+      fallback.innerHTML = `
+        <div class="audio-fallback__content">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          <p>Démo audio interactive</p>
+          <small>Fichiers audio disponibles sur demande</small>
+        </div>
+      `;
+      parent.appendChild(fallback);
+
+      // Add styles inline for demo
+      fallback.style.cssText = `
+        position: absolute;
+        inset: 0;
+        background: rgba(26, 35, 50, 0.95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+        border-radius: var(--border-radius);
+      `;
+
+      const content = fallback.querySelector('.audio-fallback__content');
+      content.style.cssText = `
+        text-align: center;
+        color: var(--neutral-100);
+        padding: 2rem;
+      `;
+
+      content.querySelector('svg').style.cssText = `
+        margin: 0 auto 1rem;
+        color: var(--secondary);
+      `;
+
+      content.querySelector('p').style.cssText = `
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      `;
+
+      content.querySelector('small').style.cssText = `
+        font-size: 0.875rem;
+        opacity: 0.8;
+      `;
+    }
+
+    // Show and auto-hide after 2s
+    setTimeout(() => {
+      fallback.style.opacity = '1';
+    }, 50);
+
+    setTimeout(() => {
+      fallback.style.opacity = '0';
+      button.classList.remove('playing');
+      this.currentlyPlaying = null;
+    }, 2500);
   }
 
   // Placeholder for WaveSurfer initialization
@@ -672,19 +752,34 @@ if (heroVideo) {
 }
 
 // ============================================
-// 13. PRELOADER (Optional)
+// 13. PRELOADER
 // ============================================
-window.addEventListener('load', () => {
-  document.body.classList.add('loaded');
+const preloader = document.getElementById('preloader');
 
-  // Trigger initial animations
-  gsap.from('.hero__content', {
-    opacity: 0,
-    y: 30,
-    duration: 1,
-    ease: 'power2.out',
-    delay: 0.3,
-  });
+// Hide preloader when page is fully loaded
+window.addEventListener('load', () => {
+  // Small delay for smooth experience
+  setTimeout(() => {
+    if (preloader) {
+      preloader.classList.add('hidden');
+
+      // Remove from DOM after transition
+      setTimeout(() => {
+        preloader.remove();
+      }, 500);
+    }
+
+    document.body.classList.add('loaded');
+
+    // Trigger initial animations
+    gsap.from('.hero__content', {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: 'power2.out',
+      delay: 0.3,
+    });
+  }, 800); // 800ms minimum display time
 });
 
 // ============================================

@@ -2190,6 +2190,10 @@ section {
 @media (max-width: 475px) {
   :root {
     --container-padding: var(--space-4);
+    /* Faster transitions for mobile performance */
+    --transition-fast: 0.1s ease;
+    --transition-base: 0.2s ease;
+    --transition-slow: 0.3s ease;
   }
 
   section {
@@ -2199,6 +2203,8 @@ section {
   .btn--hero {
     padding: var(--space-4) var(--space-8);
     font-size: var(--text-lg);
+    /* Reduce pulse animation intensity on mobile */
+    animation: pulse 3s ease-in-out infinite;
   }
 
   .portfolio__filters {
@@ -2217,6 +2223,22 @@ section {
 
   .stat-card__number {
     font-size: var(--text-6xl);
+  }
+
+  /* Disable complex animations on mobile for better performance */
+  .audio-player:hover,
+  .service-card:hover,
+  .portfolio-card:hover {
+    transform: none;
+  }
+
+  /* Simplify hover effects */
+  .btn--primary:hover {
+    transform: none;
+  }
+
+  .footer__back-to-top:hover {
+    transform: none;
   }
 }
 
