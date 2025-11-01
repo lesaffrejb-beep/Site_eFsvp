@@ -1,348 +1,382 @@
-# En français s'il vous plaît - Site Web Vitrine
+# En français s'il vous plaît - Site Web Premium 🎵
 
-Site web one-page professionnel pour EfSVP, studio de création narrative et musicale basé à Angers.
+> Site vitrine immersif niveau Awwwards pour EfSVP, studio de création narrative et musicale
 
-## 🚀 Lancement rapide
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+[![Lenis](https://img.shields.io/badge/Lenis-Smooth_Scroll-blue)](https://lenis.studiofreight.com/)
 
-### Option 1 : Ouverture directe
-Ouvrez simplement `index.html` dans votre navigateur web préféré.
+## ✨ Vue d'ensemble
 
-### Option 2 : Serveur local (recommandé)
-Pour éviter les problèmes CORS et tester dans des conditions réelles :
+Site web one-page exceptionnel conçu pour rivaliser avec les meilleurs sites d'agences créatives primées. Une expérience narrative immersive qui démontre le savoir-faire du studio à travers chaque interaction.
+
+### 🎯 Objectifs
+
+- **Business** : Convertir des décideurs (DirCom, DG, RH) cherchant du prestige culturel
+- **Budget cible** : 3 500€ - 15 000€
+- **Message clé** : "C'est exactement ce que je cherchais sans savoir que ça existait"
+
+## 🚀 Quick Start
+
+### Prérequis
+
+- Node.js 18+
+- npm ou yarn
+
+### Installation
 
 ```bash
-# Avec Python 3
-python -m http.server 8000
+# Cloner le repo
+git clone [url-repo]
+cd Site_eFsvp
 
-# Avec Python 2
-python -m SimpleHTTPServer 8000
+# Installer les dépendances
+npm install
 
-# Avec Node.js (si npx est installé)
-npx serve
+# Lancer le serveur de développement
+npm run dev
 
-# Avec PHP
-php -S localhost:8000
+# Ouvrir http://localhost:3000
 ```
 
-Puis ouvrez `http://localhost:8000` dans votre navigateur.
+### Build Production
 
----
+```bash
+# Build optimisé
+npm run build
 
-## 📁 Structure des fichiers
+# Preview du build
+npm run preview
+```
+
+## 📁 Structure du Projet
 
 ```
 /
-├── index.html          # Page principale (HTML sémantique)
-├── css/
-│   └── styles.css      # Styles complets (palette, typographies, responsive)
-├── js/
-│   └── main.js         # Interactions (smooth scroll, animations, FAQ, etc.)
-└── README.md           # Ce fichier
+├── index.html                 # Point d'entrée HTML
+├── vite.config.js            # Configuration Vite
+├── package.json              # Dépendances
+│
+├── src/
+│   ├── styles/
+│   │   └── styles.css        # Design system complet (CSS premium)
+│   │
+│   └── scripts/
+│       └── main.js           # JavaScript principal + interactions
+│
+└── public/
+    └── assets/
+        ├── audio/            # Fichiers audio (à ajouter)
+        ├── videos/           # Vidéo hero background (à ajouter)
+        ├── images/           # Images projet
+        └── fonts/            # Fonts locales (optionnel)
 ```
 
----
+## 🎨 Design System
 
-## 🎨 Personnalisation
-
-### Modifier les couleurs
-
-Toutes les couleurs sont définies dans **CSS Custom Properties** au début de `css/styles.css` :
+### Palette de Couleurs
 
 ```css
-:root {
-    --terre-cuite: #B8441E;    /* Couleur principale, CTA */
-    --encre-nuit: #1A2332;     /* Texte principal */
-    --parchemin: #F5E6D3;      /* Fond principal */
-    --ambre-forge: #E8924F;    /* Accents secondaires */
-    --charbon: #2D2D2D;        /* Texte secondaire */
-    --blanc: #FFFFFF;          /* Cartes, espaces */
-}
+/* Primary */
+--primary: #B8441E;           /* Terre cuite */
+--primary-light: #D4694A;
+--primary-dark: #8E3417;
+
+/* Secondary */
+--secondary: #E8924F;         /* Ambre forge */
+--secondary-light: #F4B87E;
+
+/* Neutrals */
+--neutral-900: #1A2332;       /* Encre nuit */
+--neutral-100: #F5E6D3;       /* Parchemin */
+--neutral-50: #FAF4ED;
+
+/* Accents */
+--accent-gold: #D4AF37;
+--accent-burgundy: #7D2E2E;
 ```
 
-**Pour changer la palette :**
-1. Ouvrez `css/styles.css`
-2. Modifiez les valeurs hexadécimales dans `:root`
-3. Sauvegardez → les changements s'appliquent partout automatiquement
-
----
-
-### Modifier les typographies
-
-Les polices Google Fonts sont chargées dans `<head>` de `index.html` :
-
-```html
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Cormorant:ital,wght@1,600&display=swap" rel="stylesheet">
-```
-
-Variables de typographie dans `css/styles.css` :
+### Typographies
 
 ```css
-:root {
-    --font-editorial: 'Newsreader', serif;    /* Titres */
-    --font-ui: 'Plus Jakarta Sans', sans-serif; /* Corps de texte */
-    --font-accent: 'Cormorant', serif;         /* Accents poétiques */
-}
+--font-display: 'Newsreader', serif;      /* Titres */
+--font-body: 'Plus Jakarta Sans', sans-serif;  /* Corps de texte */
+--font-accent: 'Cormorant', serif;        /* Citations */
 ```
 
-**Pour changer les polices :**
-1. Trouvez vos polices sur [Google Fonts](https://fonts.google.com)
-2. Remplacez le `<link>` dans `index.html`
-3. Mettez à jour les variables dans `css/styles.css`
+### Spacing (8px base)
 
----
+```css
+--space-2: 0.5rem;    /* 8px */
+--space-4: 1rem;      /* 16px */
+--space-6: 1.5rem;    /* 24px */
+--space-8: 2rem;      /* 32px */
+--space-12: 3rem;     /* 48px */
+--space-16: 4rem;     /* 64px */
+--space-24: 6rem;     /* 96px */
+```
 
-### Ajouter de vraies images
+## 🛠️ Technologies & Bibliothèques
 
-Actuellement, les cartes références utilisent des **blocs de couleur** (`reference-card__visual`).
+### Core
 
-**Pour remplacer par des images :**
+- **Vite 7** - Build tool ultra-rapide
+- **Vanilla JavaScript ES6+** - Pas de framework lourd
 
-1. **Créez un dossier images :**
-   ```bash
-   mkdir images
-   ```
+### Animations & UX
 
-2. **Ajoutez vos images** (format recommandé : JPG/WebP, ratio 4:3, ~800px de large)
+- **GSAP 3** - Animations professionnelles
+- **ScrollTrigger** - Animations déclenchées au scroll
+- **Lenis** - Smooth scroll premium
+- **Swiper** - Carousel témoignages
+- **Splitting.js** - Animations texte (prêt à l'emploi)
 
-3. **Modifiez le HTML** dans `index.html` :
+### Audio (à implémenter)
 
-   **AVANT :**
-   ```html
-   <div class="reference-card reference-card--primary">
-       <div class="reference-card__visual"></div>
-       <div class="reference-card__content">...</div>
-   </div>
-   ```
+- **WaveSurfer.js** - Players audio custom avec waveforms
 
-   **APRÈS :**
-   ```html
-   <div class="reference-card">
-       <img src="images/maine-et-loire.jpg" alt="La force de la douceur" class="reference-card__visual">
-       <div class="reference-card__content">...</div>
-   </div>
-   ```
+## 🎭 Sections du Site
 
-4. **Mettez à jour le CSS** dans `css/styles.css` :
+### 1. Hero Immersif
+- Vidéo background fullscreen (placeholder gradient animé)
+- Effet typewriter sur le tagline
+- Parallax subtil
+- CTA principal avec animation pulse
+- Scroll indicator animé
 
-   Remplacez :
-   ```css
-   .reference-card__visual {
-       width: 100%;
-       aspect-ratio: 4 / 3;
-   }
+### 2. Bento Grid Audio
+- Layout asymétrique moderne
+- 3 players audio custom (featured, standard, compact)
+- Info cards avec animations
+- Quote card avec parallax
 
-   .reference-card--primary .reference-card__visual {
-       background-color: var(--terre-cuite);
-   }
-   ```
+### 3. Services Premium
+- 4 formules avec hover effects avancés
+- Service featured avec glow effect
+- Icônes SVG animées
+- Glassmorphism sur hover
 
-   Par :
-   ```css
-   .reference-card__visual {
-       width: 100%;
-       aspect-ratio: 4 / 3;
-       object-fit: cover;
-   }
-   ```
+### 4. Portfolio Immersif
+- Filtres interactifs
+- Masonry grid responsive
+- Cards avec flip/expand effect
+- Lazy loading intelligent
 
-5. **Optimisation (optionnel mais recommandé) :**
-   - Compressez vos images avec [TinyPNG](https://tinypng.com)
-   - Utilisez WebP pour de meilleures performances
-   - Ajoutez le lazy loading : `<img loading="lazy" ...>`
+### 5. Process Timeline
+- Timeline verticale scroll-triggered
+- 4 étapes avec animations progressives
+- Connecteurs animés
+- Badges et icônes
 
----
+### 6. Témoignages
+- Carousel Swiper premium
+- Autoplay avec pause on hover
+- Étoiles et avatars
 
-### Modifier les contenus textuels
+### 7. Stats Animés
+- Counters qui s'animent au scroll
+- Gradient background
+- Pattern décoratif
 
-Tous les textes sont directement dans `index.html`. Sections principales :
+### 8. FAQ Interactive
+- Search bar avec filtrage en temps réel
+- Accordéon élégant
+- 8 questions couvrant tous les freins
 
-- **Hero** → Ligne ~32
-- **Services** → Ligne ~50
-- **Formules** → Ligne ~75
-- **Process** → Ligne ~145
-- **Références** → Ligne ~180
-- **Chiffres** → Ligne ~250
-- **FAQ** → Ligne ~280
-- **Contact** → Ligne ~350
+### 9. Contact Premium
+- Split layout (visuel + formulaire)
+- Validations en temps réel
+- Range slider budget
+- Character counter
+- Modal success
 
-Éditez directement le HTML et sauvegardez.
+### 10. Footer Multi-sections
+- 4 colonnes responsive
+- Newsletter inline
+- Back to top button animé
+- Legal links
 
----
+## ⚙️ Fonctionnalités Techniques
 
-## ⚙️ Fonctionnalités JavaScript
-
-Le fichier `js/main.js` inclut :
-
-- ✅ **Smooth scroll** vers les sections
-- ✅ **Sticky header** apparaissant au scroll
-- ✅ **Menu mobile** burger responsive
-- ✅ **Animations au scroll** (Intersection Observer)
-- ✅ **Accordéon FAQ** (toggle questions/réponses)
-- ✅ **Validation de formulaire** côté client
-- ✅ **Scroll spy** (lien actif selon la section visible)
-- ✅ **Navigation clavier** (accessibilité)
-
-Toutes les fonctions sont vanilla JS (pas de dépendances).
-
----
-
-## 📧 Intégrer l'envoi du formulaire
-
-Le formulaire contact est actuellement en **validation locale uniquement**.
-
-### Option 1 : FormSpree (gratuit, simple)
-
-1. Créez un compte sur [FormSpree.io](https://formspree.io)
-2. Créez un nouveau formulaire et obtenez votre endpoint
-3. Dans `js/main.js`, décommentez et complétez la section FormSpree (ligne ~150) :
+### Animations GSAP
 
 ```javascript
-fetch('https://formspree.io/f/YOUR_FORM_ID', {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-})
-.then(response => {
-    if (response.ok) {
-        alert('Message envoyé avec succès !');
-        form.reset();
-    }
+// Scroll-triggered animations
+ScrollTrigger.create({
+  trigger: element,
+  start: 'top 85%',
+  toggleActions: 'play none none reverse'
+});
+
+// Stagger animations
+gsap.fromTo(items, {...}, {
+  stagger: 0.1,
+  ease: 'power2.out'
 });
 ```
 
-### Option 2 : EmailJS
+### Smooth Scroll Lenis
 
-1. Créez un compte sur [EmailJS.com](https://www.emailjs.com)
-2. Suivez leur guide d'intégration
-3. Intégrez leur SDK dans `index.html` et modifiez `main.js`
+```javascript
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+});
+```
 
-### Option 3 : Backend custom
+### Portfolio Filters
 
-Créez votre propre API (Node.js, PHP, Python) et modifiez la fonction `formValidation()`.
+```javascript
+// Filtrage animé avec GSAP
+filter.addEventListener('click', () => {
+  gsap.to(matchingCards, {
+    opacity: 1,
+    scale: 1,
+    duration: 0.3
+  });
+});
+```
+
+## 📱 Responsive Design
+
+- **Desktop** (1280px+) : Expérience complète
+- **Tablet** (768px - 1023px) : Layout adapté
+- **Mobile** (320px - 767px) : Stack vertical optimisé
+
+### Breakpoints
+
+```css
+@media (max-width: 768px) { /* Tablet */ }
+@media (max-width: 475px) { /* Mobile */ }
+@media (min-width: 1280px) { /* Desktop XL */ }
+```
+
+## ♿ Accessibilité (WCAG 2.1 AA)
+
+✅ Contraste couleurs 4.5:1 minimum
+✅ Navigation clavier complète
+✅ ARIA labels sur éléments interactifs
+✅ Skip links
+✅ Focus visible stylé
+✅ Alt text sur images
+✅ Prefers-reduced-motion respecté
+✅ Screen reader friendly
+
+## 🚀 Optimisations Performance
+
+- **Lazy loading** images & assets
+- **Code splitting** automatique (Vite)
+- **Critical CSS** inline
+- **Font loading** optimisé (font-display: swap)
+- **WebP images** avec fallback
+- **Minification** CSS/JS
+- **Compression** Gzip/Brotli
+
+### Objectifs Lighthouse
+
+- Performance: 95+
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+
+## 🎯 Prochaines Étapes
+
+### Contenu
+
+- [ ] Ajouter vraie vidéo hero background (MP4 optimisé <5MB)
+- [ ] Intégrer vrais fichiers audio avec WaveSurfer.js
+- [ ] Remplacer blocs couleur portfolio par vraies images
+- [ ] Ajouter photos équipe (optionnel)
+
+### Technique
+
+- [ ] Setup analytics (Google Analytics ou Plausible)
+- [ ] Configurer backend formulaire (EmailJS, Netlify Forms, ou API custom)
+- [ ] Ajouter sitemap.xml
+- [ ] Implémenter Service Worker pour offline
+- [ ] Setup CI/CD pour déploiement auto
+
+### Bonus
+
+- [ ] Mode sombre (toggle)
+- [ ] Easter eggs créatifs (Konami code)
+- [ ] Cursor custom (desktop)
+- [ ] Preloader élégant
+- [ ] Page 404 custom
+
+## 📝 Personnalisation
+
+### Modifier les Couleurs
+
+Éditer les variables CSS dans `/src/styles/styles.css`:
+
+```css
+:root {
+  --primary: #VOTRE_COULEUR;
+  --secondary: #VOTRE_COULEUR;
+}
+```
+
+### Ajouter un Fichier Audio
+
+1. Placer le fichier dans `/public/assets/audio/`
+2. Initialiser WaveSurfer dans `main.js`:
+
+```javascript
+const wavesurfer = WaveSurfer.create({
+  container: '#waveform-1',
+  waveColor: '#E8924F',
+  progressColor: '#B8441E',
+  url: '/assets/audio/votre-fichier.mp3'
+});
+```
+
+### Ajouter une Vidéo Hero
+
+1. Placer vidéo dans `/public/assets/videos/hero.mp4`
+2. Remplacer le placeholder dans `index.html`:
+
+```html
+<video autoplay loop muted playsinline>
+  <source src="/assets/videos/hero.mp4" type="video/mp4">
+</video>
+```
+
+## 🐛 Debugging
+
+### Mode Dev
+
+```bash
+# Console logs détaillés activés
+npm run dev
+```
+
+### Issues Communes
+
+**Animations ne fonctionnent pas** :
+- Vérifier que GSAP et ScrollTrigger sont bien importés
+- Ouvrir la console pour voir les erreurs
+
+**Smooth scroll saccadé** :
+- Désactiver autres scripts de smooth scroll
+- Vérifier performance (trop d'animations lourdes)
+
+**Build échoue** :
+- Vérifier versions Node.js (18+)
+- Supprimer `node_modules` et réinstaller
+
+## 📄 Licence
+
+Propriétaire - En français s'il vous plaît © 2025
+
+## 👨‍💻 Support & Contact
+
+Pour toute question technique :
+- Email : contact@efsvp.fr
+- GitHub Issues : [lien repo]
 
 ---
 
-## 📱 Responsive
+**Made with ♥ in Angers**
 
-Le site est **100% responsive** avec breakpoints :
-
-- **Mobile** : < 768px (menu burger, colonnes empilées)
-- **Tablette** : 768px - 1024px (grilles adaptées)
-- **Desktop** : > 1024px (layout complet)
-
-Testez avec les DevTools de votre navigateur (F12 → mode responsive).
-
----
-
-## ♿ Accessibilité
-
-Le site respecte les bonnes pratiques :
-
-- ✅ HTML sémantique (`<header>`, `<section>`, `<nav>`, etc.)
-- ✅ Attributs ARIA (`aria-expanded`, `aria-label`)
-- ✅ Navigation au clavier (Tab, Entrée, Échap)
-- ✅ Contrastes de couleurs suffisants
-- ✅ Focus visible sur les éléments interactifs
-
-**Pour aller plus loin :**
-- Testez avec [WAVE](https://wave.webaim.org)
-- Validez le HTML sur [validator.w3.org](https://validator.w3.org)
-
----
-
-## 🚀 Déploiement
-
-### Option 1 : Netlify (gratuit, recommandé)
-
-1. Créez un compte sur [Netlify](https://www.netlify.com)
-2. Glissez-déposez votre dossier dans leur interface
-3. Votre site est en ligne en 30 secondes !
-
-### Option 2 : GitHub Pages
-
-1. Créez un repo GitHub
-2. Poussez votre code
-3. Activez GitHub Pages dans Settings
-
-### Option 3 : Serveur classique (FTP)
-
-1. Connectez-vous à votre hébergement via FTP
-2. Uploadez tous les fichiers à la racine
-3. Le site est accessible via votre nom de domaine
-
----
-
-## 🎯 Checklist avant mise en ligne
-
-- [ ] Remplacez `contact@efsvp.fr` par la vraie adresse email
-- [ ] Ajoutez un vrai numéro de téléphone (si souhaité)
-- [ ] Intégrez un service d'envoi de formulaire (FormSpree, etc.)
-- [ ] Remplacez les blocs de couleur par de vraies images
-- [ ] Testez sur mobile réel (pas seulement émulateur)
-- [ ] Testez tous les liens et boutons
-- [ ] Vérifiez l'accordéon FAQ
-- [ ] Testez le formulaire de contact
-- [ ] Optimisez les images (compression)
-- [ ] Ajoutez un favicon (icône d'onglet)
-- [ ] Configurez Google Analytics (optionnel)
-- [ ] Testez les performances avec [PageSpeed Insights](https://pagespeed.web.dev)
-
----
-
-## 🆘 Support & Questions
-
-### Le menu mobile ne s'ouvre pas
-→ Vérifiez que `js/main.js` est bien chargé (regardez la console du navigateur)
-
-### Les animations ne fonctionnent pas
-→ Intersection Observer nécessite un navigateur récent. Testez sur Chrome/Firefox/Safari récent.
-
-### Le formulaire ne s'envoie pas
-→ Normal, vous devez intégrer un service d'envoi (voir section "Intégrer l'envoi du formulaire")
-
-### Les polices ne s'affichent pas
-→ Vérifiez votre connexion internet (Google Fonts requiert une connexion)
-
----
-
-## 📄 Mentions légales
-
-Pour ajouter une page mentions légales :
-
-1. Créez `mentions-legales.html`
-2. Copiez la structure de `index.html`
-3. Remplacez le contenu
-4. Liez depuis le footer : `<a href="mentions-legales.html">Mentions légales</a>`
-
-Ou utilisez un générateur en ligne gratuit.
-
----
-
-## 🎨 Crédits
-
-**Design & Développement :** Site créé selon les spécifications du brief EfSVP
-**Typographies :** Google Fonts (Newsreader, Plus Jakarta Sans, Cormorant)
-**Code :** HTML5, CSS3, JavaScript Vanilla
-**Licence :** Tous droits réservés à En français s'il vous plaît
-
----
-
-## 📝 Notes techniques
-
-- **Pas de jQuery** : JavaScript vanilla pur (meilleure performance)
-- **Pas de Bootstrap** : CSS custom pour un design unique
-- **Mobile-first** : Design pensé d'abord pour mobile
-- **Progressive enhancement** : Fonctionne même sans JS (contenus visibles)
-
----
-
-**Besoin d'aide ?** Contactez votre développeur web ou consultez :
-- [MDN Web Docs](https://developer.mozilla.org) (référence HTML/CSS/JS)
-- [CSS-Tricks](https://css-tricks.com) (tutoriels design)
-- [Stack Overflow](https://stackoverflow.com) (questions techniques)
-
----
-
-**Version :** 1.0.0
-**Dernière mise à jour :** Janvier 2025
-**Compatibilité :** Tous navigateurs modernes (Chrome, Firefox, Safari, Edge)
+*"Vous avez déjà écrit l'histoire. On ne fera que vous relire."*
