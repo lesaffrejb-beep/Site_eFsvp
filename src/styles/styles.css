@@ -1,32 +1,51 @@
 /* ============================================
-   EfSVP - DARK CINÉMA PREMIUM WEBSITE
-   Design System "Dark Ciné" - Sobre & Contrasté
+   EfSVP - PARCHEMIN HAUTE-COUTURE WEBSITE
+   Palette Terre cuite & Encre nuit
    ============================================ */
 
 /* ============================================
-   1. CSS VARIABLES & DESIGN TOKENS (Dark Mode)
+   1. CSS VARIABLES & DESIGN TOKENS (Light Luxury)
    ============================================ */
 :root {
-  /* ========== Dark Cinéma Palette (5 tons max) ========== */
-  --bg: #0F151D;              /* Base sombre (Encre nuit profonde) */
-  --surface: #141C26;         /* Cartes/sections */
-  --text: #EAECEF;            /* Texte principal */
-  --muted: #9AA3AE;           /* Texte secondaire */
-  --border: #223044;          /* Bordures subtiles */
+  /* ========== Palette Maison (5 tons max) ========== */
+  --bg: #F5E6D3;                /* Parchemin signature */
+  --surface: #FBF1E3;           /* Cartes/sections claires */
+  --surface-dimmed: #E9D5BC;    /* Légère profondeur */
+  --text: #1A2332;              /* Encre de nuit */
+  --text-secondary: #4A5568;    /* Texte secondaire lisible */
+  --muted: #6E7687;             /* Détails et méta */
+  --border: #D8C6B4;            /* Filets subtils */
 
-  /* ========== Accents (brique + ambre uniquement) ========== */
-  --accent: #B8441E;          /* Terre cuite/brique - CTA principal */
-  --accent-hover: #C9532A;    /* Hover brique (8% lighter) */
-  --accent-2: #E8924F;        /* Ambre - hover secondaire/états actifs */
-  --ring: rgba(232, 146, 79, 0.2);  /* Focus visible doux */
+  /* ========== Accents (terre cuite + ambre) ========== */
+  --accent: #B8441E;            /* Terre cuite - CTA */
+  --accent-hover: #C9572E;      /* Terre cuite éclaircie */
+  --accent-2: #E8924F;          /* Ambre forge - survols */
+  --secondary: #1A2332;         /* Contrepoint encre */
+  --accent-gold: #F3B47A;       /* Reflet ambre doux */
+  --ring: rgba(184, 68, 30, 0.25); /* Focus premium */
 
-  /* ========== Ombres dark mode ========== */
-  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.38);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.24);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.42);
+  /* Alias pour compatibilité design-system */
+  --primary: var(--accent);
+  --primary-hover: var(--accent-hover);
+  --primary-active: #9E3615;
 
-  /* ========== Grain texture (data URI) ========== */
-  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  --primary-h: 25;
+  --primary-c: 0.16;
+  --primary-l: 0.58;
+
+  /* ========== Ombres lumineuses ========== */
+  --shadow-sm: 0 8px 16px rgba(26, 35, 50, 0.07);
+  --shadow-soft: 0 12px 24px rgba(26, 35, 50, 0.08);
+  --shadow-md: 0 16px 32px rgba(26, 35, 50, 0.09);
+  --shadow-lg: 0 24px 48px rgba(26, 35, 50, 0.12);
+  --shadow-xl: 0 28px 56px rgba(26, 35, 50, 0.14);
+  --shadow-2xl: 0 36px 72px rgba(26, 35, 50, 0.18);
+  --shadow-lift:
+    0 12px 24px rgba(26, 35, 50, 0.12),
+    0 24px 48px rgba(26, 35, 50, 0.16);
+
+  /* ========== Grain texture (optimisée clair) ========== */
+  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 
   /* ========== Typography Scale ========== */
   --text-xs: 0.75rem;      /* 12px */
@@ -108,8 +127,8 @@ body::before {
   background-image: var(--grain);
   pointer-events: none;
   z-index: 9999;
-  opacity: 1;
-  mix-blend-mode: overlay;
+  opacity: 0.28;
+  mix-blend-mode: soft-light;
 }
 
 /* ========== Typography (hiérarchie stricte) ========== */
@@ -665,7 +684,7 @@ section:nth-of-type(even) {
   transform: translateX(-50%);
   z-index: 10;
   text-align: center;
-  color: white;
+  color: var(--text);
   cursor: pointer;
   transition: opacity var(--transition-base);
 }
@@ -688,6 +707,7 @@ section:nth-of-type(even) {
   height: 24px;
   margin: 0 auto;
   animation: bounce 2s infinite;
+  color: var(--accent);
 }
 
 @keyframes bounce {
