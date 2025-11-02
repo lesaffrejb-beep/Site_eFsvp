@@ -251,6 +251,18 @@ export class AnimationsManager {
     const tiltElements = gsap.utils.toArray('[data-tilt]');
 
     tiltElements.forEach((element) => {
+      const dampen = 6;
+      const animateTilt = ({ rotateX, rotateY }) => {
+        gsap.to(element, {
+          rotateX,
+          rotateY,
+          duration: 0.45,
+          ease: 'expo.out',
+          transformPerspective: 1400,
+          transformOrigin: 'center center',
+        });
+      };
+
       element.addEventListener('mousemove', (e) => {
         const rect = element.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -259,24 +271,28 @@ export class AnimationsManager {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -10;
-        const rotateY = ((x - centerX) / centerX) * 10;
+        const rotateX = ((y - centerY) / centerY) * -dampen;
+        const rotateY = ((x - centerX) / centerX) * dampen;
 
+        animateTilt({ rotateX, rotateY });
+      });
+
+      element.addEventListener('mouseenter', () => {
         gsap.to(element, {
-          rotateX,
-          rotateY,
-          duration: 0.3,
-          ease: 'power2.out',
-          transformPerspective: 1000,
+          z: 24,
+          boxShadow: '0 32px 64px rgba(26, 35, 50, 0.18), 0 16px 32px rgba(184, 68, 30, 0.18)',
+          duration: 0.45,
+          ease: 'expo.out',
         });
       });
 
       element.addEventListener('mouseleave', () => {
+        animateTilt({ rotateX: 0, rotateY: 0 });
         gsap.to(element, {
-          rotateX: 0,
-          rotateY: 0,
-          duration: 0.5,
-          ease: 'power2.out',
+          z: 0,
+          boxShadow: 'var(--shadow-lg)',
+          duration: 0.45,
+          ease: 'expo.out',
         });
       });
     });
