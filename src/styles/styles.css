@@ -127,8 +127,8 @@ body::before {
   background-image: var(--grain);
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.12;
-  mix-blend-mode: luminosity;
+  opacity: 0.1;
+  mix-blend-mode: soft-light;
 }
 
 /* ========== Typography (hiérarchie stricte) ========== */
