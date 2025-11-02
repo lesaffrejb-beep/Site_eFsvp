@@ -290,22 +290,22 @@
 
         <div class="hero__content">
             <!-- Signature éditoriale -->
-            <p class="hero__pretitle">En français s'il vous plaît</p>
+            <p class="hero__pretitle" data-scroll>En français s'il vous plaît</p>
 
             <!-- Titre principal - La Promesse -->
             <h1 class="hero__title">
-                <span class="hero__title-line">Vous avez déjà écrit l'histoire.</span>
-                <span class="hero__title-line hero__title-line--emphasis">On ne fera que vous relire.</span>
+                <span class="hero__title-line" data-scroll>Vous avez déjà écrit l'histoire.</span>
+                <span class="hero__title-line hero__title-line--emphasis" data-scroll>On ne fera que vous relire.</span>
             </h1>
 
             <!-- Description premium -->
-            <p class="hero__subtitle">
+            <p class="hero__subtitle" data-scroll>
                 Une création sonore sur-mesure qui transforme votre histoire en expérience émotionnelle.
                 <span class="hero__subtitle-highlight">Prestige garanti.</span>
             </p>
 
             <!-- CTA principal -->
-            <a href="#contact" class="btn btn--primary btn--hero">
+            <a href="#contact" class="btn btn--primary btn--hero" data-scroll data-glow>
                 <span>Partagez votre histoire</span>
                 <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -313,16 +313,16 @@
             </a>
 
             <!-- Métriques de confiance -->
-            <div class="hero__trust-metrics">
-                <div class="hero__metric">
+            <div class="hero__trust-metrics" data-scroll>
+                <div class="hero__metric" data-reveal="scale">
                     <strong>60+</strong>
                     <span>Représentations</span>
                 </div>
-                <div class="hero__metric">
+                <div class="hero__metric" data-reveal="scale">
                     <strong>15+</strong>
                     <span>Projets institutionnels</span>
                 </div>
-                <div class="hero__metric">
+                <div class="hero__metric" data-reveal="scale">
                     <strong>1200€</strong>
                     <span>À partir de</span>
                 </div>
@@ -347,14 +347,14 @@
              ============================================ -->
         <section class="audio-section" id="creations">
             <div class="container">
-                <header class="section__header">
+                <header class="section__header" data-scroll>
                     <h2 class="section__title">Écoutez ce que nous créons</h2>
                     <p class="section__subtitle">Des récits qui touchent, portés par la musique</p>
                 </header>
 
-                <div class="bento-grid">
+                <div class="bento-grid" data-scroll>
                     <!-- Audio Player 1 - Featured -->
-                    <article class="bento-item bento-item--large">
+                    <article class="bento-item bento-item--large" data-reveal="scale" data-lift>
                         <div class="audio-player audio-player--featured">
                             <div class="audio-player__artwork">
                                 <div class="audio-player__artwork-placeholder" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
@@ -387,7 +387,7 @@
                     </article>
 
                     <!-- Info Card 1 -->
-                    <article class="bento-item bento-item--card">
+                    <article class="bento-item bento-item--card" data-reveal="scale" data-glow>
                         <div class="info-card">
                             <div class="info-card__number">3</div>
                             <h3 class="info-card__title">formats</h3>
@@ -477,14 +477,14 @@
              ============================================ -->
         <section class="flagship-cases" id="cases">
             <div class="container">
-                <header class="section__header">
+                <header class="section__header" data-scroll>
                     <h2 class="section__title">Trois créations qui racontent notre approche</h2>
                     <p class="section__subtitle">Problème · Approche · Effet</p>
                 </header>
 
                 <div class="flagship-cases__grid">
                     <!-- Case 1: SIVAL -->
-                    <article class="case-card" data-category="institutions">
+                    <article class="case-card" data-category="institutions" data-scroll data-lift data-tilt>
                         <div class="case-card__visual">
                             <div class="case-card__gradient" style="background: linear-gradient(135deg, #E8924F 0%, #D4AF37 100%);"></div>
                             <div class="case-card__badge">Série narrative</div>
@@ -520,7 +520,7 @@
                     </article>
 
                     <!-- Case 2: Atelier Lacour -->
-                    <article class="case-card" data-category="entreprises">
+                    <article class="case-card" data-category="entreprises" data-scroll data-lift data-tilt>
                         <div class="case-card__visual">
                             <div class="case-card__gradient" style="background: linear-gradient(135deg, #2D2D2D 0%, #7D2E2E 100%);"></div>
                             <div class="case-card__badge">Anniversaire entreprise</div>
@@ -556,7 +556,7 @@
                     </article>
 
                     <!-- Case 3: PNR Loire-Anjou-Touraine -->
-                    <article class="case-card case-card--featured" data-category="spectacles">
+                    <article class="case-card case-card--featured" data-category="spectacles" data-scroll data-lift data-tilt>
                         <div class="case-card__visual">
                             <div class="case-card__gradient" style="background: linear-gradient(135deg, #7D2E2E 0%, #B8441E 100%);"></div>
                             <div class="case-card__badge">Spectacle immersif</div>
@@ -609,14 +609,14 @@
              ============================================ -->
         <section class="services" id="services">
             <div class="container">
-                <header class="section__header">
+                <header class="section__header" data-scroll>
                     <h2 class="section__title">Quatre formules, une signature</h2>
                     <p class="section__subtitle">De l'écriture seule au spectacle complet</p>
                 </header>
 
                 <div class="services__grid">
                     <!-- Service 1 -->
-                    <article class="service-card">
+                    <article class="service-card" data-scroll data-lift data-glow>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
@@ -638,7 +638,7 @@
                     </article>
 
                     <!-- Service 2 -->
-                    <article class="service-card">
+                    <article class="service-card" data-scroll data-lift data-glow>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25"/>
@@ -660,7 +660,7 @@
                     </article>
 
                     <!-- Service 3 - Featured -->
-                    <article class="service-card service-card--featured">
+                    <article class="service-card service-card--featured" data-scroll data-lift data-glow>
                         <div class="service-card__featured-badge">Notre signature</div>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -683,7 +683,7 @@
                     </article>
 
                     <!-- Service 4 -->
-                    <article class="service-card">
+                    <article class="service-card" data-scroll data-lift data-glow>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
@@ -712,7 +712,7 @@
              ============================================ -->
         <section class="portfolio" id="portfolio">
             <div class="container">
-                <header class="section__header">
+                <header class="section__header" data-scroll>
                     <h2 class="section__title">Ils nous ont fait confiance</h2>
                     <div class="portfolio__stats">
                         <div class="portfolio__stat" data-counter="60">60+</div>
@@ -734,7 +734,7 @@
                 <!-- Portfolio Grid -->
                 <div class="portfolio__grid">
                     <!-- Project 1 -->
-                    <article class="portfolio-card" data-category="institutions">
+                    <article class="portfolio-card" data-category="institutions" data-scroll data-lift>
                         <div class="portfolio-card__visual">
                             <div class="portfolio-card__overlay"></div>
                             <div class="portfolio-card__color" style="background: linear-gradient(135deg, #B8441E 0%, #E8924F 100%);"></div>
@@ -751,7 +751,7 @@
                     </article>
 
                     <!-- Project 2 -->
-                    <article class="portfolio-card" data-category="entreprises">
+                    <article class="portfolio-card" data-category="entreprises" data-scroll data-lift>
                         <div class="portfolio-card__visual">
                             <div class="portfolio-card__overlay"></div>
                             <div class="portfolio-card__color" style="background: linear-gradient(135deg, #E8924F 0%, #D4AF37 100%);"></div>
@@ -768,7 +768,7 @@
                     </article>
 
                     <!-- Project 3 -->
-                    <article class="portfolio-card" data-category="entreprises">
+                    <article class="portfolio-card" data-category="entreprises" data-scroll data-lift>
                         <div class="portfolio-card__visual">
                             <div class="portfolio-card__overlay"></div>
                             <div class="portfolio-card__color" style="background: linear-gradient(135deg, #2D2D2D 0%, #7D2E2E 100%);"></div>
@@ -785,7 +785,7 @@
                     </article>
 
                     <!-- Project 4 -->
-                    <article class="portfolio-card" data-category="institutions">
+                    <article class="portfolio-card" data-category="institutions" data-scroll data-lift>
                         <div class="portfolio-card__visual">
                             <div class="portfolio-card__overlay"></div>
                             <div class="portfolio-card__color" style="background: linear-gradient(135deg, #F5E6D3 0%, #D4AF37 100%);"></div>
@@ -802,7 +802,7 @@
                     </article>
 
                     <!-- Project 5 -->
-                    <article class="portfolio-card" data-category="spectacles">
+                    <article class="portfolio-card" data-category="spectacles" data-scroll data-lift>
                         <div class="portfolio-card__visual">
                             <div class="portfolio-card__overlay"></div>
                             <div class="portfolio-card__color" style="background: linear-gradient(135deg, #7D2E2E 0%, #B8441E 100%);"></div>
@@ -819,7 +819,7 @@
                     </article>
 
                     <!-- Project 6 -->
-                    <article class="portfolio-card" data-category="institutions">
+                    <article class="portfolio-card" data-category="institutions" data-scroll data-lift>
                         <div class="portfolio-card__visual">
                             <div class="portfolio-card__overlay"></div>
                             <div class="portfolio-card__color" style="background: linear-gradient(135deg, #1A2332 0%, #2D2D2D 100%);"></div>
@@ -843,14 +843,14 @@
              ============================================ -->
         <section class="process" id="process">
             <div class="container">
-                <header class="section__header">
+                <header class="section__header" data-scroll>
                     <h2 class="section__title">Comment ça marche</h2>
                     <p class="section__subtitle">Un process simple et rassurant en 4 étapes</p>
                 </header>
 
                 <div class="process__timeline">
                     <!-- Step 1 -->
-                    <article class="process__step">
+                    <article class="process__step" data-scroll>
                         <div class="process__step-number">
                             <span>01</span>
                         </div>
@@ -875,7 +875,7 @@
                     </article>
 
                     <!-- Step 2 -->
-                    <article class="process__step">
+                    <article class="process__step" data-scroll>
                         <div class="process__step-number">
                             <span>02</span>
                         </div>
@@ -900,7 +900,7 @@
                     </article>
 
                     <!-- Step 3 -->
-                    <article class="process__step">
+                    <article class="process__step" data-scroll>
                         <div class="process__step-number">
                             <span>03</span>
                         </div>
@@ -926,7 +926,7 @@
                     </article>
 
                     <!-- Step 4 -->
-                    <article class="process__step">
+                    <article class="process__step" data-scroll>
                         <div class="process__step-number">
                             <span>04</span>
                         </div>

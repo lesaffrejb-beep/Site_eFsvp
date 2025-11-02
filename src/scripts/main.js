@@ -17,6 +17,7 @@ import { ErrorHandler } from './modules/errorHandler.js';
 import { LazyLoadManager } from './modules/lazyLoad.js';
 import { FormValidator } from './modules/formValidator.js';
 import { AnimationsManager } from './modules/animations.js';
+import { ProgressBar } from './modules/progressBar.js';
 import Swiper from 'swiper';
 import { Pagination, Autoplay } from 'swiper/modules';
 
@@ -115,6 +116,9 @@ class App {
     // Smooth Scroll (Lenis)
     this.modules.smoothScroll = new SmoothScroll();
     window.lenis = this.modules.smoothScroll.lenis; // Global access
+
+    // Reading Progress Bar Premium
+    this.modules.progressBar = new ProgressBar();
 
     // Custom Cursor (desktop only)
     if (!this.isMobile) {

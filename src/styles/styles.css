@@ -205,12 +205,14 @@ button {
 }
 
 /* ============================================
-   SECTIONS - LE LUXE SILENCIEUX
+   SECTIONS - LE LUXE SILENCIEUX - PREMIUM ENHANCED
    ============================================ */
 section {
-  /* Espacement vertical XXL - Multiplié par 2 pour prestige */
-  padding: clamp(var(--space-28), 10vw, var(--space-32)) 0;
+  /* Espacement vertical XXL PREMIUM - Doublement pour niveau Behance */
+  padding: clamp(var(--space-32), 12vw, 10rem) 0;
   position: relative;
+  /* Ajout d'un margin-bottom pour créer encore plus d'espace entre sections */
+  margin-bottom: clamp(var(--space-16), 5vw, var(--space-24));
 }
 
 /* Alternance subtile Parchemin/Surface */
@@ -222,10 +224,10 @@ section:nth-of-type(even) {
   background-color: var(--surface);
 }
 
-/* ========== Section Headers - Majestueux ========== */
+/* ========== Section Headers - Majestueux avec breathing room ========== */
 .section__header {
   text-align: center;
-  margin-bottom: var(--space-24); /* x1.5 de l'original */
+  margin-bottom: clamp(var(--space-24), 8vw, var(--space-32)); /* Augmenté pour plus d'air */
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -253,7 +255,7 @@ section:nth-of-type(even) {
 
 .section__cta {
   text-align: center;
-  margin-top: var(--space-24); /* x1.5 de l'original */
+  margin-top: clamp(var(--space-24), 8vw, var(--space-32)); /* Augmenté pour premium spacing */
 }
 
 /* ============================================
