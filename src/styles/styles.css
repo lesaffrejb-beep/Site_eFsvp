@@ -25,6 +25,8 @@ html {
   /* Anti-veil safeguards */
   opacity: 1 !important;
   filter: none !important;
+  mix-blend-mode: normal !important;
+  backdrop-filter: none !important;
 }
 
 body {
@@ -43,12 +45,16 @@ body {
   /* Anti-veil safeguards */
   opacity: 1 !important;
   filter: none !important;
+  mix-blend-mode: normal !important;
+  backdrop-filter: none !important;
 }
 
-main, #app {
+main, #app, #main {
   /* Anti-veil safeguards - aucun voile sur les conteneurs globaux */
   opacity: 1 !important;
   filter: none !important;
+  mix-blend-mode: normal !important;
+  backdrop-filter: none !important;
   position: relative;
 }
 
@@ -628,8 +634,8 @@ section:nth-of-type(even) {
   position: relative;
   padding: var(--space-6) var(--space-12);
   border-radius: 999px;
-  background-color: rgba(26, 35, 50, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: #1A2332; /* Opaque - was rgba(26, 35, 50, 0.85) */
+  border: 1px solid #4A5A6F; /* Opaque - was rgba(255, 255, 255, 0.25) */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
@@ -1010,7 +1016,7 @@ section:nth-of-type(even) {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: #E8EAF0; /* Opaque - was rgba(255, 255, 255, 0.1) */
 }
 
 .info-card--accent {
@@ -1421,7 +1427,7 @@ section:nth-of-type(even) {
 }
 
 .service-card--featured .service-card__badge {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #DDE5F0; /* Opaque - was rgba(255, 255, 255, 0.2) */
   color: white;
 }
 
@@ -2212,7 +2218,7 @@ section:nth-of-type(even) {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: #E8EAF0; /* Opaque - was rgba(255, 255, 255, 0.1) */
 }
 
 /* Right Form */
@@ -2609,7 +2615,7 @@ section:nth-of-type(even) {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(26, 35, 50, 0.8);
+  background-color: #1A2332; /* Opaque - was rgba(26, 35, 50, 0.8) */
 }
 
 .modal__content {
