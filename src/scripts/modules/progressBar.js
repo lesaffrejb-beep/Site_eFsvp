@@ -34,10 +34,10 @@ export class ProgressBar {
         width: 100%;
         height: 4px;
         z-index: 10000;
-        background: linear-gradient(90deg, rgba(245, 230, 211, 0.85) 0%, rgba(245, 230, 211, 0.45) 100%);
-        backdrop-filter: blur(18px) saturate(140%);
-        border-bottom: 1px solid rgba(184, 68, 30, 0.08);
+        background: linear-gradient(90deg, rgba(245, 230, 211, 0.95) 0%, rgba(245, 230, 211, 0.85) 100%);
+        border-bottom: 1px solid rgba(184, 68, 30, 0.12);
         pointer-events: none;
+        /* Backdrop-filter removed - was causing global veil effect */
       }
 
       .reading-progress__bar {
