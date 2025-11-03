@@ -120,7 +120,7 @@ body {
   position: relative;
 }
 
-/* Grain texture overlay on body - CORRIGÉ : z-index bas, opacity réduite, pas de blend-mode */
+/* Grain texture overlay on body - CORRIGÉ FINAL : z-index NÉGATIF pour être derrière TOUT */
 body::before {
   content: '';
   position: fixed;
@@ -130,7 +130,7 @@ body::before {
   height: 100%;
   background-image: var(--grain);
   pointer-events: none;
-  z-index: 1;  /* Sous le contenu, pas au-dessus */
+  z-index: -1;  /* DERRIÈRE TOUT le contenu */
   opacity: 0.03;  /* Texture subtile uniquement */
   /* mix-blend-mode supprimé pour éviter le délavage */
 }
@@ -1072,7 +1072,7 @@ section:nth-of-type(even) {
   font-weight: 700;
   line-height: 1;
   margin-bottom: var(--space-2);
-  opacity: 0.9;
+  opacity: 1;  /* 100% pour lisibilité */
 }
 
 .info-card__title {
@@ -1083,7 +1083,8 @@ section:nth-of-type(even) {
 
 .info-card__text {
   font-size: var(--text-base);
-  opacity: 0.9;
+  opacity: 1;  /* 100% pour lisibilité */
+  color: var(--text-secondary);  /* Utiliser couleur secondaire au lieu d'opacity */
 }
 
 .info-card__decoration {
@@ -2026,7 +2027,8 @@ section:nth-of-type(even) {
 .stat-card__label {
   font-family: var(--font-serif);
   font-size: var(--text-base);
-  opacity: 0.9;
+  opacity: 1;  /* 100% pour lisibilité */
+  color: var(--text-secondary);  /* Couleur secondaire au lieu d'opacity */
   line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: 0.1em;
