@@ -34,15 +34,18 @@ export class ProgressBar {
         width: 100%;
         height: 4px;
         z-index: 10000;
-        background: transparent;
+        background: linear-gradient(90deg, rgba(245, 230, 211, 0.85) 0%, rgba(245, 230, 211, 0.45) 100%);
+        backdrop-filter: blur(18px) saturate(140%);
+        border-bottom: 1px solid rgba(184, 68, 30, 0.08);
         pointer-events: none;
       }
 
       .reading-progress__bar {
         height: 100%;
         width: 0%;
-        background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
-        box-shadow: 0 0 10px rgba(232, 146, 79, 0.5);
+        background: linear-gradient(90deg, rgba(184, 68, 30, 0.95) 0%, rgba(232, 146, 79, 0.85) 45%, rgba(243, 180, 122, 0.8) 100%);
+        box-shadow: 0 6px 18px rgba(184, 68, 30, 0.25);
+        border-radius: 0 999px 999px 0;
         transition: width 0.1s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
