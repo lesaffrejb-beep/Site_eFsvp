@@ -40,6 +40,9 @@ class App {
     // 0. Error Handler (TOUJOURS en premier)
     this.initErrorHandler();
 
+    // 0.5 Anti-veil failsafe immédiat
+    this.applyAntiVeilFailsafe();
+
     try {
       // 1. Preloader
       await this.handlePreloader();
@@ -64,6 +67,21 @@ class App {
       console.error('❌ Critical initialization error:', error);
       this.handleCriticalError(error);
     }
+  }
+
+  /**
+   * Anti-veil Failsafe - Garantit aucun voile global
+   */
+  applyAntiVeilFailsafe() {
+    ['html', 'body', 'main', '#app', '#main'].forEach(selector => {
+      const el = document.querySelector(selector);
+      if (el) {
+        el.style.opacity = '1';
+        el.style.filter = 'none';
+        el.style.backdropFilter = 'none';
+        el.style.mixBlendMode = 'normal';
+      }
+    });
   }
 
   /**
@@ -251,16 +269,34 @@ class App {
           });
         }
 
-        // ========== FAILSAFE ANTI-VEIL ==========
+        // ========== FAILSAFE ANTI-VEIL RENFORCÉ ==========
         // Force opacity:1 et filter:none sur les éléments globaux pour garantir aucun voile résiduel
-        ['html', 'body', 'main', '#app'].forEach(selector => {
-          const el = document.querySelector(selector);
-          if (el) {
-            el.style.opacity = '1';
-            el.style.filter = 'none';
-          }
-        });
-        console.log('✅ Anti-veil failsafe applied');
+        const antiVeilFailsafe = () => {
+          ['html', 'body', 'main', '#app', '#main'].forEach(selector => {
+            const el = document.querySelector(selector);
+            if (el) {
+              el.style.opacity = '1';
+              el.style.filter = 'none';
+              el.style.backdropFilter = 'none';
+              el.style.mixBlendMode = 'normal';
+            }
+          });
+        };
+
+        // Appliquer immédiatement
+        antiVeilFailsafe();
+
+        // Ré-appliquer après toute animation GSAP globale (failsafe)
+        if (window.gsap) {
+          window.gsap.ticker.add(() => {
+            // Check périodique léger (toutes les 60 frames = ~1s)
+            if (window.gsap.ticker.frame % 60 === 0) {
+              antiVeilFailsafe();
+            }
+          });
+        }
+
+        console.log('✅ Anti-veil failsafe renforcé applied');
       }, 0);
     });
   }

@@ -45,6 +45,13 @@ body {
   filter: none !important;
 }
 
+main, #app {
+  /* Anti-veil safeguards - aucun voile sur les conteneurs globaux */
+  opacity: 1 !important;
+  filter: none !important;
+  position: relative;
+}
+
 /* GRAIN PSEUDO-ÉLÉMENT SUPPRIMÉ - C'était la cause du voile blanc */
 /* Le grain est maintenant directement en background du body */
 /* Plus aucun pseudo-élément qui peut créer un layer problématique */
