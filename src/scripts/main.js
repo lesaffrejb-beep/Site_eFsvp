@@ -251,16 +251,18 @@ class App {
           });
         }
 
-        // ========== FAILSAFE ANTI-VEIL ==========
-        // Force opacity:1 et filter:none sur les éléments globaux pour garantir aucun voile résiduel
-        ['html', 'body', 'main', '#app'].forEach(selector => {
+        // ========== FAILSAFE ANTI-VEIL (HARDENED) ==========
+        // Force tous les wrappers globaux à opacity:1, filter:none, mix-blend:normal, backdrop-filter:none
+        ['html', 'body', 'main', '#app', '#main'].forEach(selector => {
           const el = document.querySelector(selector);
           if (el) {
             el.style.opacity = '1';
             el.style.filter = 'none';
+            el.style.mixBlendMode = 'normal';
+            el.style.backdropFilter = 'none';
           }
         });
-        console.log('✅ Anti-veil failsafe applied');
+        console.log('✅ Anti-veil failsafe applied (hardened)');
       }, 0);
     });
   }
