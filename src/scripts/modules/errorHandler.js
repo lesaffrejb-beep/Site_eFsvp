@@ -316,7 +316,7 @@ export class ErrorHandler {
       </div>
     `;
 
-    // Styles inline
+    // Styles inline (backdrop-filter supprimé pour éviter tout voile global)
     overlay.style.cssText = `
       position: fixed;
       top: 0;
@@ -328,7 +328,6 @@ export class ErrorHandler {
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(8px);
     `;
 
     const content = overlay.querySelector('.critical-error__content');

@@ -250,6 +250,17 @@ class App {
             event_category: 'Performance',
           });
         }
+
+        // ========== FAILSAFE ANTI-VEIL ==========
+        // Force opacity:1 et filter:none sur les éléments globaux pour garantir aucun voile résiduel
+        ['html', 'body', 'main', '#app'].forEach(selector => {
+          const el = document.querySelector(selector);
+          if (el) {
+            el.style.opacity = '1';
+            el.style.filter = 'none';
+          }
+        });
+        console.log('✅ Anti-veil failsafe applied');
       }, 0);
     });
   }

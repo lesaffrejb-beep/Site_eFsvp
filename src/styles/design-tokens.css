@@ -28,18 +28,17 @@
   --text-inverse: #FFFFFF;
   --border: #D8C6B4;
   --border-strong: #BAA68E;
-  --hero-fallback-dark: #0C1421;
-  --hero-overlay-top: rgba(8, 14, 24, 0.25);
-  --hero-overlay-mid: rgba(8, 14, 24, 0.1);
-  --hero-overlay-bottom: rgba(8, 14, 24, 0);
   --hero-fallback-dark: #0F1926;
+  --hero-overlay-top: #080E18;
+  --hero-overlay-mid: #0C1218;
+  --hero-overlay-bottom: transparent;
 
   /* ===== Accent aliases ===== */
   --accent: var(--primary);
   --accent-hover: var(--primary-hover);
   --accent-2: var(--secondary);
   --accent-gold: #F3B47A;
-  --ring: rgba(184, 68, 30, 0.25);
+  --ring: #E8C4B4;
 
   /* ===== Typography ===== */
   --font-display: 'Newsreader', serif;

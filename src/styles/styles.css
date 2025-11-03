@@ -463,6 +463,7 @@ section:nth-of-type(even) {
    ============================================ */
 .hero {
   position: relative;
+  isolation: isolate;
   min-height: 100dvh;  /* dvh pour gérer les barres d'URL mobiles */
   width: 100%;
   margin: 0;
@@ -503,12 +504,12 @@ section:nth-of-type(even) {
   width: 100%;
   height: 100%;
   background-color: var(--hero-fallback-dark);
-  background-image: radial-gradient(circle at 20% 20%, rgba(232, 146, 79, 0.3) 0%, rgba(19, 33, 50, 0.95) 55%, rgba(15, 25, 38, 1) 100%);
+  background-image: radial-gradient(circle at 20% 20%, #D37F48 0%, #132132 55%, #0F1926 100%);
   background-size: cover;
   background-position: center;
 }
 
-/* Overlay léger pour améliorer la lisibilité du texte sur la vidéo */
+/* Overlay léger scopé UNIQUEMENT dans .hero (aucun alpha global) */
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -516,12 +517,13 @@ section:nth-of-type(even) {
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(8, 14, 24, 0.2) 0%,
-    rgba(8, 14, 24, 0.05) 50%,
-    rgba(8, 14, 24, 0) 100%
+    var(--hero-overlay-top) 0%,
+    var(--hero-overlay-mid) 50%,
+    var(--hero-overlay-bottom) 100%
   );
   z-index: 1;
   pointer-events: none;
+  /* Isolation stricte : overlay reste dans .hero uniquement */
 }
 
 /* Contenu centré - sans "carte" */
@@ -665,7 +667,7 @@ section:nth-of-type(even) {
 
   .hero__video-placeholder {
     /* Afficher le poster à la place (si défini via inline style), sinon garder le gradient sombre */
-    background-image: radial-gradient(circle at 20% 20%, rgba(232, 146, 79, 0.3) 0%, rgba(19, 33, 50, 0.95) 55%, rgba(15, 25, 38, 1) 100%);
+    background-image: radial-gradient(circle at 20% 20%, #D37F48 0%, #132132 55%, #0F1926 100%);
     background-size: cover;
     background-position: center;
   }
