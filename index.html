@@ -165,7 +165,8 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <!-- Design System Awwwards -->
+    <!-- Design Tokens + System -->
+    <link rel="stylesheet" href="/src/styles/design-tokens.css">
     <link rel="stylesheet" href="/src/styles/design-system.css">
 
     <!-- Main Styles -->
@@ -190,6 +191,8 @@
         .preloader.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
+            z-index: -1;
         }
         .preloader__content {
             text-align: center;
