@@ -466,7 +466,8 @@ section:nth-of-type(even) {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* Pas de background : la vidéo sera l'arrière-plan */
+  /* Fond sombre pour fallback lorsque la vidéo est absente */
+  background-color: var(--hero-fallback-dark);
 }
 
 /* Vidéo en arrière-plan - Full Bleed */
@@ -494,7 +495,8 @@ section:nth-of-type(even) {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 50%, var(--surface-dimmed) 100%);
+  background-color: var(--hero-fallback-dark);
+  background-image: radial-gradient(circle at 20% 20%, rgba(232, 146, 79, 0.25) 0%, rgba(19, 33, 50, 0.92) 55%, rgba(15, 25, 38, 0.98) 100%);
   background-size: cover;
   background-position: center;
 }
@@ -655,8 +657,8 @@ section:nth-of-type(even) {
   }
 
   .hero__video-placeholder {
-    /* Afficher le poster à la place */
-    background-image: url('/public/media/efsvp-hero-poster.jpg');
+    /* Afficher le poster à la place (si défini via inline style), sinon garder le gradient sombre */
+    background-image: radial-gradient(circle at 20% 20%, rgba(232, 146, 79, 0.25) 0%, rgba(19, 33, 50, 0.92) 55%, rgba(15, 25, 38, 0.98) 100%);
     background-size: cover;
     background-position: center;
   }

@@ -28,6 +28,7 @@
   --text-inverse: #FFFFFF;
   --border: #D8C6B4;
   --border-strong: #BAA68E;
+  --hero-fallback-dark: #0F1926;
 
   /* ===== Accent aliases ===== */
   --accent: var(--primary);
