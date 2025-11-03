@@ -1,0 +1,33 @@
+/* ============================================
+   TEMP — Kill switch anti-voile
+   À RETIRER après diagnostic/fix permanent
+   ============================================ */
+
+/* Force totale sur les wrappers globaux */
+html, body, main, #main, #app {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  backdrop-filter: none !important;
+}
+
+/* Supprime tous les pseudo-éléments potentiellement problématiques sur les wrappers */
+html::before, html::after,
+body::before, body::after,
+main::before, main::after {
+  content: none !important;
+}
+
+/* Masque tout overlay/backdrop/vignette/grain/veil qui pourrait être global */
+[class*="overlay"]:not(.hero__overlay):not(.modal__overlay),
+[class*="backdrop"],
+[class*="vignette"],
+[class*="grain"]:not(.hero__grain),
+[class*="veil"] {
+  display: none !important;
+}
+
+/* S'assure qu'aucun élément fixed/absolute couvrant tout ne crée de voile */
+.critical-error-overlay {
+  /* Exception: overlay d'erreur critique OK */
+}
