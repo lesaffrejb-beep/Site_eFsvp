@@ -35,11 +35,8 @@ body {
   line-height: 1.75;                  /* 17px / 28px (confort) */
   color: var(--text);
   background-color: var(--bg);
-  /* GRAIN EN BACKGROUND DIRECT - Plus de pseudo-élément qui crée un voile */
-  background-image: var(--grain);
-  background-size: 200px 200px;
-  background-attachment: fixed;
-  background-repeat: repeat;
+  /* GRAIN DÉSACTIVÉ - Contribuait au voile gris perçu */
+  /* Le fond est maintenant un parchemin pur plus saturé et chaud */
   overflow-x: hidden;
   position: relative;
   /* Anti-veil safeguards */
