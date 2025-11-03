@@ -1006,7 +1006,7 @@ section:nth-of-type(even) {
 .info-card__text {
   font-size: var(--text-base);
   opacity: 1;  /* 100% pour lisibilité */
-  color: var(--text-secondary);  /* Utiliser couleur secondaire au lieu d'opacity */
+  color: rgba(255, 255, 255, 0.9);  /* WCAG AA: Texte clair sur fond terre cuite pour bon contraste */
 }
 
 .info-card__decoration {
@@ -1427,7 +1427,7 @@ section:nth-of-type(even) {
 }
 
 .service-card--featured .service-card__badge {
-  background-color: #DDE5F0; /* Opaque - was rgba(255, 255, 255, 0.2) */
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent pour se fondre dans le gradient */
   color: white;
 }
 
@@ -1941,7 +1941,7 @@ section:nth-of-type(even) {
   font-family: var(--font-serif);
   font-size: var(--text-base);
   opacity: 1;  /* 100% pour lisibilité */
-  color: var(--text-secondary);  /* Couleur secondaire au lieu d'opacity */
+  color: rgba(255, 255, 255, 0.9);  /* WCAG AA: Blanc avec légère transparence pour contraste sur fond terre cuite */
   line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: 0.1em;
