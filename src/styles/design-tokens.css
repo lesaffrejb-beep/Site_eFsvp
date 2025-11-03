@@ -32,6 +32,7 @@
   --hero-overlay-top: rgba(8, 14, 24, 0.92);
   --hero-overlay-mid: rgba(8, 14, 24, 0.6);
   --hero-overlay-bottom: rgba(8, 14, 24, 0);
+  --hero-fallback-dark: #0F1926;
 
   /* ===== Accent aliases ===== */
   --accent: var(--primary);
