@@ -20,6 +20,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  /* Anti-veil safeguards */
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -45,6 +48,9 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  /* Anti-veil safeguards */
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 /* ========== TYPOGRAPHY PREMIUM ========== */
