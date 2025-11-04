@@ -94,6 +94,33 @@ button {
   background: none;
 }
 
+/* ========== CURSOR STATES Premium ========== */
+a,
+button,
+[role="button"],
+[type="button"],
+[type="submit"],
+[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+summary,
+label[for] {
+  cursor: pointer;
+}
+
+a[href^="tel"],
+a[href^="mailto"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[disabled],
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 /* ========== SELECTION ========== */
 ::selection {
   background-color: var(--primary);
@@ -104,7 +131,20 @@ button {
 *:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--radius-sm);
+  transition: outline-offset var(--duration-fast) var(--ease-smooth);
+}
+
+/* Focus states spécifiques pour types d'éléments */
+button:focus-visible,
+a:focus-visible {
+  outline-offset: 4px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 2px;
 }
 
 /* ========== UTILS ========== */
