@@ -84,9 +84,7 @@
   --container-max: 1280px;
   --container-padding: var(--space-6);
   --text-max-width: 68ch;
-  --border-radius-sm: 8px;
   --border-radius: 16px;
-  --border-radius-lg: 24px;
   --border-radius-full: 9999px;
 
   /* ===== Motion & Effects ===== */
@@ -101,12 +99,13 @@
   --transition-slow: 0.26s cubic-bezier(0.22, 0.9, 0.24, 1);
 
   /* ===== Shadows & Glow ===== */
-  --shadow-sm: 0 6px 12px rgba(26, 35, 50, 0.08);
-  --shadow-md: 0 12px 24px rgba(26, 35, 50, 0.1);
-  --shadow-lg: 0 18px 36px rgba(26, 35, 50, 0.12);
-  --shadow-xl: 0 24px 48px rgba(26, 35, 50, 0.16);
-  --shadow-2xl: 0 30px 60px rgba(26, 35, 50, 0.18);
-  --shadow-lift: 0 12px 24px rgba(26, 35, 50, 0.12), 0 24px 48px rgba(26, 35, 50, 0.16);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-2xl: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.08);
   --glow-accent: 0 0 20px rgba(232, 146, 79, 0.3);
   --scroll-cta-shadow: 0 6px 12px rgba(184, 68, 30, 0.35);
 

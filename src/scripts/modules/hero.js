@@ -99,11 +99,11 @@ export class HeroManager {
       },
     });
 
-    // Click scroll to next section
+    // Click scroll to #creations section
     this.scrollIndicator.addEventListener('click', () => {
-      const nextSection = this.hero.nextElementSibling;
-      if (nextSection) {
-        window.lenis?.scrollTo(nextSection, {
+      const creationsSection = document.querySelector('#creations');
+      if (creationsSection) {
+        window.lenis?.scrollTo(creationsSection, {
           offset: -100,
           duration: 1.5,
         });
