@@ -284,7 +284,7 @@
     <!-- ============================================
          ACTE 1: HERO IMMERSIF - FULL BLEED avec Vidéo
          ============================================ -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" aria-label="Page d'accueil et présentation">
         <!-- Video Background - Full Bleed -->
         <div class="hero__video-container">
             <!-- Fallback image (poster) -->
@@ -353,24 +353,11 @@
             </div>
         </div>
 
-        <div class="hero__scroll" id="hero-scroll">
-            <span class="hero__scroll-text">Faites défiler</span>
-            <div class="hero__scroll-staff" aria-hidden="true">
-                <svg viewBox="0 0 120 32" role="presentation" focusable="false">
-                    <g stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round">
-                        <line x1="4" y1="6" x2="116" y2="6" />
-                        <line x1="4" y1="12" x2="116" y2="12" />
-                        <line x1="4" y1="18" x2="116" y2="18" />
-                        <line x1="4" y1="24" x2="116" y2="24" />
-                        <line x1="4" y1="30" x2="116" y2="30" />
-                        <path d="M32 6c6 4 6 18 0 22" />
-                        <circle cx="52" cy="18" r="4" fill="currentColor" />
-                        <circle cx="74" cy="12" r="4" fill="currentColor" />
-                        <path d="M74 12v-10" />
-                    </g>
-                </svg>
-            </div>
-        </div>
+        <button class="hero__scroll" id="hero-scroll" aria-label="Faire défiler vers la section Créations">
+            <svg class="hero__scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </button>
     </section>
 
     <!-- Main Content -->
@@ -379,10 +366,10 @@
         <!-- ============================================
              ACTE 2: BENTO GRID AUDIO
              ============================================ -->
-        <section class="audio-section" id="creations">
+        <section class="audio-section" id="creations" aria-labelledby="creations-title">
             <div class="container">
                 <header class="section__header" data-scroll>
-                    <h2 class="section__title">Écoutez ce que nous créons</h2>
+                    <h2 class="section__title" id="creations-title">Écoutez ce que nous créons</h2>
                     <p class="section__subtitle">Des récits qui touchent, portés par la musique</p>
                 </header>
 
@@ -509,10 +496,10 @@
         <!-- ============================================
              ACTE 3: CAS ÉTENDARDS (Flagship Cases)
              ============================================ -->
-        <section class="flagship-cases" id="cases">
+        <section class="flagship-cases" id="cases" aria-labelledby="cases-title">
             <div class="container">
                 <header class="section__header" data-scroll>
-                    <h2 class="section__title">Trois créations qui racontent notre approche</h2>
+                    <h2 class="section__title" id="cases-title">Trois créations qui racontent notre approche</h2>
                     <p class="section__subtitle">Problème · Approche · Effet</p>
                 </header>
 
@@ -875,10 +862,10 @@
         <!-- ============================================
              ACTE 5: PROCESS IMMERSIF
              ============================================ -->
-        <section class="process" id="process">
+        <section class="process" id="process" aria-labelledby="process-title">
             <div class="container">
                 <header class="section__header" data-scroll>
-                    <h2 class="section__title">Comment ça marche</h2>
+                    <h2 class="section__title" id="process-title">Comment ça marche</h2>
                     <p class="section__subtitle">Un process simple et rassurant en 4 étapes</p>
                 </header>
 
@@ -1117,10 +1104,10 @@
         <!-- ============================================
              STATS SECTION - CHIFFRES DE CONFIANCE
              ============================================ -->
-        <section class="stats">
+        <section class="stats" aria-labelledby="stats-title">
             <div class="container">
                 <header class="stats__header">
-                    <h2 class="stats__title">La preuve par les chiffres</h2>
+                    <h2 class="stats__title" id="stats-title">La preuve par les chiffres</h2>
                 </header>
                 <div class="stats__grid">
                     <div class="stat-card">
@@ -1146,10 +1133,10 @@
         <!-- ============================================
              ACTE 7: FAQ PREMIUM
              ============================================ -->
-        <section class="faq" id="faq">
+        <section class="faq" id="faq" aria-labelledby="faq-title">
             <div class="container">
                 <header class="section__header">
-                    <h2 class="section__title">Vos questions, nos réponses</h2>
+                    <h2 class="section__title" id="faq-title">Vos questions, nos réponses</h2>
                 </header>
 
                 <!-- Search Bar -->
@@ -1278,7 +1265,7 @@
         <!-- ============================================
              ACTE 8: CONTACT PREMIUM
              ============================================ -->
-        <section class="contact" id="contact">
+        <section class="contact" id="contact" aria-labelledby="contact-title">
             <div class="container">
                 <div class="contact__layout">
                     <!-- Left Side - Visual & Quote -->
@@ -1293,7 +1280,7 @@
                     <!-- Right Side - Form -->
                     <div class="contact__form-container">
                         <header class="contact__header">
-                            <h2 class="contact__title">La vôtre commence maintenant</h2>
+                            <h2 class="contact__title" id="contact-title">La vôtre commence maintenant</h2>
                             <p class="contact__subtitle">Réponse sous 48h · Premier échange offert</p>
                         </header>
 

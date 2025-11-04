@@ -20,6 +20,7 @@ import { AnimationsManager } from './modules/animations.js';
 import { ProgressBar } from './modules/progressBar.js';
 import { AmbientAudioManager } from './modules/ambientAudio.js';
 import { KnowledgeVoicePlayer } from './modules/knowledgeVoice.js';
+import { ProcessReveal } from './modules/processReveal.js';
 import Swiper from 'swiper';
 import { Pagination, Autoplay } from 'swiper/modules';
 
@@ -183,6 +184,9 @@ class App {
 
     // Audio Players (WaveSurfer)
     this.modules.audioPlayers = new AudioPlayerManager();
+
+    // Process Reveal Animation
+    this.modules.processReveal = new ProcessReveal();
 
     // Portfolio filters
     this.initPortfolioFilters();
@@ -485,26 +489,50 @@ class App {
   // ========== STATS COUNTER ==========
   initStatsCounter() {
     const statCards = document.querySelectorAll('[data-count]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Si préférence réduite, ne pas animer
+    if (prefersReducedMotion) {
+      return;
+    }
 
     statCards.forEach((stat) => {
       const target = parseInt(stat.getAttribute('data-count'));
-      const duration = 2;
+      const originalText = stat.textContent; // Garder le texte original (ex: "60+")
+      let hasAnimated = false;
 
-      gsap.to(stat, {
-        innerHTML: target,
-        duration: duration,
-        ease: 'power1.out',
-        snap: { innerHTML: 1 },
-        scrollTrigger: {
-          trigger: stat,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
+      // Observer pour détecter l'entrée dans le viewport
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAnimated) {
+              hasAnimated = true;
+
+              // Animation du compteur
+              const animationData = { value: 0 };
+              gsap.to(animationData, {
+                value: target,
+                duration: 0.8,
+                ease: 'power3.out',
+                onUpdate: function () {
+                  const current = Math.round(animationData.value);
+                  stat.textContent = current + (originalText.includes('+') ? '+' : '');
+                },
+                onComplete: function () {
+                  stat.textContent = originalText; // Restaurer le texte original
+                },
+              });
+
+              observer.unobserve(stat);
+            }
+          });
         },
-        onUpdate: function () {
-          const current = Math.round(this.targets()[0].innerHTML);
-          stat.innerHTML = current + '+';
-        },
-      });
+        {
+          threshold: 0.5,
+        }
+      );
+
+      observer.observe(stat);
     });
   }
 
