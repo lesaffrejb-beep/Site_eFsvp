@@ -1,0 +1,304 @@
+/* ============================================
+   EFSVP - PREMIUM ENHANCEMENTS 2025
+   Micro-interactions et détails premium
+   ============================================ */
+
+/* ========== SMOOTH SCROLL BEHAVIOR ========== */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========== LINK ENHANCEMENTS ========== */
+/* Tous les liens ont une transition fluide */
+a {
+  transition:
+    color var(--duration-base) var(--ease-smooth),
+    opacity var(--duration-base) var(--ease-smooth),
+    transform var(--duration-base) var(--ease-smooth);
+}
+
+/* Liens dans le texte avec soulignement élégant */
+p a,
+li a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition:
+    text-decoration-color var(--duration-base) var(--ease-smooth),
+    color var(--duration-base) var(--ease-smooth);
+}
+
+p a:hover,
+li a:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ========== CARD HOVER ENHANCEMENTS ========== */
+/* Amélioration des cards avec effet de profondeur */
+.bento-item,
+.service-card,
+.portfolio-card,
+.process__step-content {
+  transition:
+    transform var(--duration-slow) var(--ease-out-expo),
+    box-shadow var(--duration-slow) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-smooth);
+}
+
+/* Effet de lift plus prononcé sur hover */
+.bento-item:hover,
+.service-card:hover,
+.portfolio-card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* ========== IMAGE HOVER EFFECTS ========== */
+/* Toutes les images ont un effet de zoom subtil */
+img {
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+a:hover img,
+button:hover img {
+  transform: scale(1.03);
+}
+
+/* ========== FORM ENHANCEMENTS ========== */
+input,
+textarea,
+select {
+  transition:
+    border-color var(--duration-base) var(--ease-smooth),
+    box-shadow var(--duration-base) var(--ease-smooth),
+    background-color var(--duration-base) var(--ease-smooth);
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--accent);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(184, 68, 30, 0.1);
+}
+
+/* ========== BUTTON SCALE MICRO-INTERACTION ========== */
+.btn {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.btn:active {
+  transform: scale(0.97) !important;
+  transition-duration: var(--duration-fast);
+}
+
+/* ========== ICON ANIMATIONS ========== */
+/* Icônes dans les cards ont une légère rotation au hover */
+.service-card:hover .service-card__icon,
+.process__step:hover .process__step-icon {
+  animation: iconPulse 0.6s ease-out;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* ========== SCROLL REVEAL FADE-IN ========== */
+/* Tous les éléments avec data-scroll ont une animation au scroll */
+[data-scroll] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
+}
+
+[data-scroll].is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== TOUCH TARGETS ========== */
+/* Tous les éléments interactifs ont au moins 44x44px */
+button,
+a,
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Exception pour les liens inline dans le texte */
+p a,
+li a {
+  min-height: auto;
+  min-width: auto;
+}
+
+/* ========== LOADING STATES ========== */
+/* États de chargement avec animation shimmer */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ========== BACKDROP BLUR ON SCROLL ========== */
+/* Header avec backdrop blur au scroll */
+.nav.scrolled {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(250, 232, 204, 0.9);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ========== PREMIUM SHADOWS ON SCROLL ========== */
+/* Cards gagnent en profondeur au scroll */
+.is-inview .bento-item,
+.is-inview .service-card,
+.is-inview .portfolio-card {
+  animation: fadeInUp 0.8s var(--ease-out-expo) backwards;
+}
+
+.is-inview .bento-item:nth-child(1) { animation-delay: 0.1s; }
+.is-inview .bento-item:nth-child(2) { animation-delay: 0.2s; }
+.is-inview .bento-item:nth-child(3) { animation-delay: 0.3s; }
+.is-inview .bento-item:nth-child(4) { animation-delay: 0.4s; }
+.is-inview .bento-item:nth-child(5) { animation-delay: 0.5s; }
+.is-inview .bento-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== TEXT SELECTION STYLING ========== */
+::selection {
+  background-color: var(--primary);
+  color: white;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background-color: var(--primary);
+  color: white;
+  text-shadow: none;
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  /* Cache les éléments non essentiels à l'impression */
+  .nav,
+  .hero__scroll,
+  .btn,
+  footer {
+    display: none !important;
+  }
+
+  /* Optimise les couleurs pour l'impression */
+  body {
+    background: white;
+    color: black;
+  }
+
+  /* Évite les coupures de page dans les cards */
+  .service-card,
+  .portfolio-card,
+  .process__step {
+    page-break-inside: avoid;
+  }
+}
+
+/* ========== DARK MODE CONSIDERATION ========== */
+/* Prêt pour un éventuel dark mode */
+@media (prefers-color-scheme: dark) {
+  /* Pour l'instant, on force le light mode */
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* ========== PERFORMANCE OPTIMIZATIONS ========== */
+/* GPU acceleration pour les éléments animés */
+.btn,
+.bento-item,
+.service-card,
+.portfolio-card,
+.process__step-content,
+img {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+@media (prefers-contrast: high) {
+  /* Améliore le contraste pour l'accessibilité */
+  .btn--primary {
+    border: 2px solid var(--text);
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
