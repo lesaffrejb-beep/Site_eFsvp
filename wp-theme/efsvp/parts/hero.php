@@ -4,11 +4,9 @@
  *
  * @package EfSVP
  */
-$pretitle      = get_theme_mod('efsvp_hero_pretitle', "En français s'il vous plaît");
 $title_line_1  = get_theme_mod('efsvp_hero_title_line_one', "Vous avez déjà écrit l'histoire.");
-$title_line_2  = get_theme_mod('efsvp_hero_title_line_two', 'On ne fera que vous relire.');
-$subtitle      = get_theme_mod('efsvp_hero_subtitle', 'Une création sonore sur-mesure qui transforme votre histoire en expérience émotionnelle.');
-$highlight     = get_theme_mod('efsvp_hero_subtitle_highlight', 'Prestige garanti.');
+$title_line_2  = get_theme_mod('efsvp_hero_title_line_two', 'Nous la mettons en scène avec mesure.');
+$subtitle      = get_theme_mod('efsvp_hero_subtitle', 'Une direction narrative et musicale ciselée qui magnifie vos moments clés.');
 $video_mp4     = get_theme_mod('efsvp_hero_video_mp4', '');
 $video_webm    = get_theme_mod('efsvp_hero_video_webm', '');
 $video_poster  = get_theme_mod('efsvp_hero_video_poster', '');
@@ -31,23 +29,21 @@ $poster_attr   = $video_poster ? sprintf(' poster="%s"', esc_url($video_poster))
     </div>
 
     <div class="hero__content">
-        <p class="hero__pretitle" data-scroll><?php echo esc_html($pretitle); ?></p>
         <h1 class="hero__title">
-            <span class="hero__title-line" data-scroll><?php echo esc_html($title_line_1); ?></span>
-            <span class="hero__title-line hero__title-line--emphasis" data-scroll><?php echo esc_html($title_line_2); ?></span>
+            <span class="hero__title-line hero__title-line--primary" data-scroll><?php echo esc_html($title_line_1); ?></span>
+            <span class="hero__title-line hero__title-line--secondary" data-scroll><?php echo esc_html($title_line_2); ?></span>
         </h1>
         <p class="hero__subtitle" data-scroll>
             <?php echo esc_html($subtitle); ?>
-            <?php if ($highlight) : ?>
-                <span class="hero__subtitle-highlight"><?php echo esc_html($highlight); ?></span>
-            <?php endif; ?>
         </p>
-        <a href="#contact" class="btn btn--primary btn--hero" data-scroll data-glow>
-            <span><?php esc_html_e('Partagez votre histoire', 'efsvp'); ?></span>
-            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-        </a>
+        <div class="hero__cta-group" data-scroll>
+            <a href="#contact" class="btn btn--primary btn--hero" data-glow>
+                <span><?php esc_html_e('Partagez votre histoire', 'efsvp'); ?></span>
+                <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
         <div class="hero__trust-metrics" data-scroll>
             <div class="hero__metric" data-reveal="scale">
                 <strong>60+</strong>
@@ -65,7 +61,7 @@ $poster_attr   = $video_poster ? sprintf(' poster="%s"', esc_url($video_poster))
     </div>
 
     <div class="hero__scroll" id="hero-scroll">
-        <span class="hero__scroll-text"><?php esc_html_e('Découvrez', 'efsvp'); ?></span>
+        <span class="hero__scroll-text"><?php esc_html_e('Faites défiler', 'efsvp'); ?></span>
         <div class="hero__scroll-arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 5v14M5 12l7 7 7-7"/>

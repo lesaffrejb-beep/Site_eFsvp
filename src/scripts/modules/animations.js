@@ -262,52 +262,25 @@ export class AnimationsManager {
       });
     });
 
-    // Tilt effect (3D perspective)
+    // Soft hover lift (remplace l'effet 3D)
     const tiltElements = gsap.utils.toArray('[data-tilt]');
 
     tiltElements.forEach((element) => {
-      const dampen = 6;
-      const animateTilt = ({ rotateX, rotateY }) => {
-        gsap.to(element, {
-          rotateX,
-          rotateY,
-          duration: 0.45,
-          ease: 'expo.out',
-          transformPerspective: 1400,
-          transformOrigin: 'center center',
-        });
-      };
-
-      element.addEventListener('mousemove', (e) => {
-        const rect = element.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -dampen;
-        const rotateY = ((x - centerX) / centerX) * dampen;
-
-        animateTilt({ rotateX, rotateY });
-      });
-
       element.addEventListener('mouseenter', () => {
         gsap.to(element, {
-          z: 24,
-          boxShadow: '0 32px 64px rgba(26, 35, 50, 0.18), 0 16px 32px rgba(184, 68, 30, 0.18)',
-          duration: 0.45,
-          ease: 'expo.out',
+          y: -6,
+          duration: 0.35,
+          ease: 'power2.out',
+          boxShadow: '0 24px 44px rgba(26, 35, 50, 0.18)',
         });
       });
 
       element.addEventListener('mouseleave', () => {
-        animateTilt({ rotateX: 0, rotateY: 0 });
         gsap.to(element, {
-          z: 0,
+          y: 0,
+          duration: 0.35,
+          ease: 'power2.out',
           boxShadow: 'var(--shadow-lg)',
-          duration: 0.45,
-          ease: 'expo.out',
         });
       });
     });
