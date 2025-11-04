@@ -310,27 +310,36 @@
 
         <div class="hero__content">
             <!-- Signature éditoriale -->
-            <p class="hero__pretitle" data-scroll>En français s'il vous plaît</p>
+            <p class="hero__pretitle" data-scroll>Acte I — Révélation</p>
 
             <!-- Titre principal - La Promesse -->
-            <h1 class="hero__title">
-                <span class="hero__title-line" data-scroll>Vous avez déjà écrit l'histoire.</span>
-                <span class="hero__title-line hero__title-line--emphasis" data-scroll>On ne fera que vous relire.</span>
+            <h1 class="hero__title" data-scroll>
+                <span class="hero__title-line hero__title-line--primary">VOUS AVEZ DÉJÀ</span>
+                <span class="hero__title-line hero__title-line--primary">ÉCRIT L'HISTOIRE.</span>
+                <span class="hero__title-line hero__title-line--secondary">On ne fera que vous relire.</span>
             </h1>
 
             <!-- Description premium -->
             <p class="hero__subtitle" data-scroll>
-                Une création sonore sur-mesure qui transforme votre histoire en expérience émotionnelle.
-                <span class="hero__subtitle-highlight">Prestige garanti.</span>
+                Nous écrivons, composons et jouons votre récit avec une précision dramaturgique et musicale totale.
+                <span class="hero__subtitle-highlight">Ce que vous vivez déjà mérite une scène.</span>
             </p>
 
-            <!-- CTA principal -->
-            <a href="#contact" class="btn btn--primary btn--hero" data-scroll data-glow>
-                <span>Démarrer votre projet</span>
-                <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+            <!-- CTA & Ambient toggle -->
+            <div class="hero__cta-group" data-scroll>
+                <a href="#contact" class="btn btn--primary btn--hero" data-glow>
+                    <span>Partagez votre histoire</span>
+                    <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <button type="button" class="hero__sound-toggle" data-ambient-toggle data-audio-src="/assets/audio/ambient-loop.wav" aria-pressed="false">
+                    <span class="hero__sound-toggle-label">Activer l'ambiance</span>
+                    <span class="hero__sound-toggle-wave" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                    </span>
+                </button>
+            </div>
 
             <!-- Métriques de confiance -->
             <div class="hero__trust-metrics" data-scroll>
@@ -350,11 +359,55 @@
         </div>
 
         <div class="hero__scroll" id="hero-scroll">
-            <span class="hero__scroll-text">Découvrez</span>
-            <div class="hero__scroll-arrow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
+            <span class="hero__scroll-text">Acte II — Continuez</span>
+            <div class="hero__scroll-staff" aria-hidden="true">
+                <svg viewBox="0 0 120 32" role="presentation" focusable="false">
+                    <g stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round">
+                        <line x1="4" y1="6" x2="116" y2="6" />
+                        <line x1="4" y1="12" x2="116" y2="12" />
+                        <line x1="4" y1="18" x2="116" y2="18" />
+                        <line x1="4" y1="24" x2="116" y2="24" />
+                        <line x1="4" y1="30" x2="116" y2="30" />
+                        <path d="M32 6c6 4 6 18 0 22" />
+                        <circle cx="52" cy="18" r="4" fill="currentColor" />
+                        <circle cx="74" cy="12" r="4" fill="currentColor" />
+                        <path d="M74 12v-10" />
+                    </g>
                 </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narration clarifier -->
+    <section class="knowledge" aria-labelledby="knowledge-title">
+        <div class="knowledge__inner">
+            <p class="knowledge__eyebrow" data-scroll>Ce que vous ne savez pas encore</p>
+            <div class="knowledge__intro" data-scroll>
+                <h2 class="knowledge__title" id="knowledge-title">Trois réponses avant vos questions.</h2>
+                <p class="knowledge__subtitle">On clarifie vos doutes dès la première scène : ce que nous faisons, comment nous vous comprenons et pourquoi tout reste digne.</p>
+            </div>
+
+            <div class="knowledge__grid" role="list">
+                <article class="knowledge__card" data-scroll role="listitem">
+                    <h3>« Je ne savais pas que ça existait. »</h3>
+                    <p>Nous sommes des auteurs-compositeurs-interprètes qui façonnent un récit complet pour votre moment clé. Ce n’est pas une prestation digitale : c’est un spectacle écrit pour vous.</p>
+                    <a class="knowledge__action" href="#creations">Voir comment</a>
+                </article>
+                <article class="knowledge__card" data-scroll role="listitem">
+                    <h3>« Allez-vous comprendre mon métier ? »</h3>
+                    <p>Deux semaines d’immersion, d’entretiens et de recherches. Nous écrivons à quatre mains et vous validez chaque étape. Votre vocabulaire, vos enjeux, vos émotions.</p>
+                    <a class="knowledge__action" href="#process">Notre méthode</a>
+                </article>
+                <article class="knowledge__card knowledge__card--voice" data-scroll role="listitem">
+                    <h3>« Ça ne sera pas cringe ? »</h3>
+                    <p>Jamais. Nous visons la dignité, la retenue juste et l’émotion maîtrisée. Écoutez la réaction de Marie, après la révélation de leur hymne.</p>
+                    <button type="button" class="knowledge__voice" data-voice-trigger aria-controls="knowledge-voice" aria-expanded="false">
+                        <span class="knowledge__voice-label">Écouter l’extrait</span>
+                        <span class="knowledge__voice-wave" aria-hidden="true"><span></span><span></span><span></span></span>
+                    </button>
+                    <div class="sr-only" id="knowledge-voice-transcript">« On a vu des élus pleurer. C’était la première fois qu’ils entendaient leur territoire raconté comme ça. » — Marie D.</div>
+                    <audio id="knowledge-voice" preload="none" data-audio-src="/assets/audio/temoignage-fragment.wav" aria-describedby="knowledge-voice-transcript"></audio>
+                </article>
             </div>
         </div>
     </section>

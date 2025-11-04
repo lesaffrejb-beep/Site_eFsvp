@@ -72,6 +72,21 @@ npm run preview
         └── fonts/            # Fonts locales (optionnel)
 ```
 
+### 🎧 Gestion des fichiers audio
+
+- Les extraits d'ambiance et de témoignage doivent être ajoutés localement dans `public/assets/audio/`.
+- Les fichiers audio sont ignorés par Git (`.gitignore`) afin d'éviter les binaires dans les PR.
+- Conservez l'arborescence suivante :
+
+  ```
+  public/assets/audio/
+  ├── ambient-loop.wav           # Boucle d'ambiance du hero
+  └── temoignage-fragment.wav    # Extrait du témoignage Marie D.
+  ```
+
+- En production, adaptez les attributs `data-audio-src` dans `index.html` si vous hébergez les fichiers ailleurs.
+- Les modules JS désactivent automatiquement les contrôles si les fichiers sont absents afin de préserver l'accessibilité.
+
 ## 🎨 Design System
 
 ### Palette de Couleurs

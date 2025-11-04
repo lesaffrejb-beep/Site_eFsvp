@@ -18,6 +18,8 @@ import { LazyLoadManager } from './modules/lazyLoad.js';
 import { FormValidator } from './modules/formValidator.js';
 import { AnimationsManager } from './modules/animations.js';
 import { ProgressBar } from './modules/progressBar.js';
+import { AmbientAudioManager } from './modules/ambientAudio.js';
+import { KnowledgeVoicePlayer } from './modules/knowledgeVoice.js';
 import Swiper from 'swiper';
 import { Pagination, Autoplay } from 'swiper/modules';
 
@@ -170,6 +172,14 @@ class App {
   initSections() {
     // Hero
     this.modules.hero = new HeroManager();
+
+    // Ambient audio toggle
+    this.modules.ambientAudio = new AmbientAudioManager();
+    this.modules.ambientAudio.init();
+
+    // Knowledge voice excerpt
+    this.modules.knowledgeVoice = new KnowledgeVoicePlayer();
+    this.modules.knowledgeVoice.init();
 
     // Audio Players (WaveSurfer)
     this.modules.audioPlayers = new AudioPlayerManager();
