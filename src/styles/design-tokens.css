@@ -27,12 +27,17 @@
   --text-tertiary: #5A6677;
   --muted: #6E7687;
   --text-inverse: #FFFFFF;
+  --text-on-dark: #F6F3EF;       /* Texte sur fond sombre premium */
   --border: #D8C6B4;
   --border-strong: #BAA68E;
+
+  /* ===== Hero & Dark Sections ===== */
   --hero-fallback-dark: #0F1926;
   --hero-overlay-top: #080E18;
   --hero-overlay-mid: #0C1218;
   --hero-overlay-bottom: transparent;
+  --dark-section-bg: #0E151B;     /* Pour sections sombres (témoignages) */
+  --dark-section-bg-end: #141E26; /* Gradient de fin */
 
   /* ===== Accent aliases ===== */
   --accent: var(--primary);
@@ -85,17 +90,16 @@
   --container-padding: var(--space-6);
   --text-max-width: 68ch;
 
-  /* ===== Border Radius System ===== */
+  /* ===== Border Radius System - Premium Unified ===== */
   --radius-none: 0;
   --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 20px;
-  --radius-3xl: 24px;
+  --radius-sm: 8px;   /* Uniformisé */
+  --radius-md: 12px;  /* Rayon principal premium */
+  --radius-lg: 20px;  /* Cards principales */
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
   --radius-full: 9999px;
-  --border-radius: var(--radius-xl); /* Alias legacy */
+  --border-radius: var(--radius-md); /* Alias legacy - maintenant 12px */
   --border-radius-full: var(--radius-full); /* Alias legacy */
 
   /* ===== Motion & Effects ===== */
@@ -118,6 +122,8 @@
   --shadow-xl: 0 20px 40px 0 rgba(0, 0, 0, 0.14), 0 12px 20px 0 rgba(0, 0, 0, 0.08);
   --shadow-2xl: 0 30px 60px 0 rgba(0, 0, 0, 0.16), 0 20px 30px 0 rgba(0, 0, 0, 0.1);
   --shadow-lift: 0 16px 32px 0 rgba(0, 0, 0, 0.12), 0 8px 16px 0 rgba(0, 0, 0, 0.06);
+  --shadow-hero-cta: 0 24px 48px rgba(0, 0, 0, 0.40); /* CTA Hero premium */
+  --shadow-dark-card: 0 16px 40px rgba(0, 0, 0, 0.25); /* Cards sur fond sombre */
   --glow-accent: 0 0 20px rgba(232, 146, 79, 0.3);
   --glow-primary: 0 0 24px rgba(184, 68, 30, 0.25);
   --scroll-cta-shadow: 0 6px 12px rgba(184, 68, 30, 0.35);
