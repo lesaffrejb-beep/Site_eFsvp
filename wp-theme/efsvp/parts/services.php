@@ -127,7 +127,7 @@
         </header>
         <div class="flagship-cases__grid">
             <?php /* Cards copied from static markup */ ?>
-            <article class="case-card" data-category="institutions" data-scroll data-lift data-tilt>
+            <article class="case-card" data-category="institutions" data-scroll data-lift>
                 <div class="case-card__visual">
                     <div class="case-card__gradient" style="background: linear-gradient(135deg, #E8924F 0%, #D4AF37 100%);"></div>
                     <div class="case-card__badge"><?php esc_html_e('Série narrative', 'efsvp'); ?></div>
@@ -157,7 +157,7 @@
                     </button>
                 </div>
             </article>
-            <article class="case-card" data-category="corporate" data-scroll data-lift data-tilt>
+            <article class="case-card" data-category="corporate" data-scroll data-lift>
                 <div class="case-card__visual">
                     <div class="case-card__gradient" style="background: linear-gradient(135deg, #5F4B8B 0%, #CBA0D7 100%);"></div>
                     <div class="case-card__badge"><?php esc_html_e('Cérémonie', 'efsvp'); ?></div>
@@ -187,7 +187,7 @@
                     </button>
                 </div>
             </article>
-            <article class="case-card case-card--featured" data-category="spectacles" data-scroll data-lift data-tilt>
+            <article class="case-card case-card--featured" data-category="spectacles" data-scroll data-lift>
                 <div class="case-card__visual">
                     <div class="case-card__gradient" style="background: linear-gradient(135deg, #7D2E2E 0%, #B8441E 100%);"></div>
                     <div class="case-card__badge"><?php esc_html_e('Spectacle immersif', 'efsvp'); ?></div>
