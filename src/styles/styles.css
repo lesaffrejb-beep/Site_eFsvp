@@ -2042,7 +2042,13 @@ section:nth-of-type(even) {
    11. TESTIMONIALS
    ============================================ */
 .testimonials {
-  background-color: var(--surface);
+  background: linear-gradient(180deg, #0F141A 0%, #141E26 100%);
+  position: relative;
+  color: white;
+}
+
+.testimonials .section__title {
+  color: var(--text-on-dark);
 }
 
 .testimonials__carousel {
@@ -2052,11 +2058,18 @@ section:nth-of-type(even) {
 }
 
 .testimonial-card {
-  background: var(--surface);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-lg);
   padding: var(--space-8);
-  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
   height: auto;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
 }
 
 .testimonial-card__stars {
@@ -2077,7 +2090,7 @@ section:nth-of-type(even) {
   font-style: italic;
   line-height: 1.5;
   margin-bottom: var(--space-6);
-  color: var(--text);
+  color: white;
 }
 
 .testimonial-card__author {
@@ -2107,11 +2120,12 @@ section:nth-of-type(even) {
   font-style: normal;
   display: block;
   margin-bottom: var(--space-1);
+  color: white;
 }
 
 .testimonial-card__role {
   font-size: var(--text-sm);
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
