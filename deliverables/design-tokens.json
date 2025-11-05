@@ -1,0 +1,61 @@
+{
+  "colors": {
+    "primary": "#b8441e",
+    "secondary": "#e8924f",
+    "accent": "#d4af37",
+    "darkBrown": "#7d2e2e",
+    "darkGrey": "#2d2d2d",
+    "cream": "#f5e6d3",
+    "white": "#ffffff",
+    "background": "TODO (à compléter chunk #2 - chercher dans CSS)",
+    "surface": "TODO (à compléter chunk #2)",
+    "text": "TODO (à compléter chunk #2)",
+    "textSecondary": "TODO (à compléter chunk #2)"
+  },
+  "typography": {
+    "fontFamilies": {
+      "serif": "'Playfair Display', serif",
+      "sans": "'Inter', sans-serif",
+      "accent": "'Cormorant', serif"
+    },
+    "fontWeights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800,
+      "black": 900
+    },
+    "fontSizes": {
+      "hero": "3rem",
+      "base": "TODO (à compléter chunk #2)",
+      "small": "TODO (à compléter chunk #2)"
+    }
+  },
+  "spacing": {
+    "containerWidth": "TODO (à compléter chunk #2 - chercher max-width dans CSS)",
+    "sectionPadding": "TODO (à compléter chunk #2)"
+  },
+  "borderRadius": {
+    "small": "TODO (à compléter chunk #2)",
+    "medium": "TODO (à compléter chunk #2)",
+    "large": "TODO (à compléter chunk #2)",
+    "full": "50%"
+  },
+  "shadows": {
+    "default": "TODO (à compléter chunk #2)",
+    "elevated": "TODO (à compléter chunk #2)"
+  },
+  "gradients": {
+    "primary": "linear-gradient(135deg, #b8441e 0%, #e8924f 100%)",
+    "gold": "linear-gradient(135deg, #e8924f 0%, #d4af37 100%)",
+    "dark": "linear-gradient(135deg, #2d2d2d 0%, #7d2e2e 100%)",
+    "darkRed": "linear-gradient(135deg, #7d2e2e 0%, #b8441e 100%)",
+    "cream": "linear-gradient(135deg, #f5e6d3 0%, #d4af37 100%)"
+  },
+  "notes": [
+    "Tokens extraits du chunk #1 (lignes 0-1000)",
+    "Les valeurs marquées TODO nécessitent la lecture des fichiers CSS ou des chunks suivants",
+    "Gradients identifiés dans les cas d'usage (case cards, preloader, etc.)"
+  ]
+}

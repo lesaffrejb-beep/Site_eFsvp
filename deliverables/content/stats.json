@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "source": "Chunk #1 (lignes 0-1000)",
+    "note": "Pas de section dédiée 'La preuve par les chiffres' trouvée dans ce chunk. Stats extraites de différentes sections."
+  },
+  "heroMetrics": [
+    {
+      "value": "60+",
+      "label": "Représentations"
+    },
+    {
+      "value": "15+",
+      "label": "Projets institutionnels"
+    },
+    {
+      "value": "1200€",
+      "label": "À partir de"
+    }
+  ],
+  "portfolioStats": [
+    {
+      "value": "60+",
+      "label": "représentations"
+    },
+    {
+      "value": "15+",
+      "label": "institutions"
+    }
+  ],
+  "casesMetrics": {
+    "sival": {
+      "recitsDiffuses": "8 récits diffusés",
+      "visiteurs": "2 000+ visiteurs",
+      "nps": "9.2/10",
+      "mediaReprise": ["France Bleu", "Ouest-France"]
+    },
+    "atelierLacour": {
+      "participants": "120 collaborateurs & partenaires"
+    },
+    "etatDeNature": {
+      "representations": "60+ représentations",
+      "periode": "depuis 2023",
+      "spectateurs": "2 400+ spectateurs",
+      "satisfaction": "94%",
+      "programmation": "reconduite 2025-2026"
+    }
+  },
+  "todoChunk2": [
+    "Chercher section 'La preuve par les chiffres' si elle existe",
+    "Vérifier s'il y a d'autres métriques de performance",
+    "Compléter les stats de conversion si présentes"
+  ]
+}
