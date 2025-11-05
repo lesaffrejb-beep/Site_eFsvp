@@ -4,32 +4,34 @@
    ============================================ */
 
 :root {
-  /* ===== Brand Palette ===== */
-  --primary: #b8441e;
-  --primary-hover: #d25e38;
-  --primary-active: #9e3615;
-  --secondary: #e8924f;
-  --ink: #1a2332;
-  --charcoal: #2d2d2d;
-  /* COULEURS PLUS SATURÉES - Fix voile gris */
-  --parchment: #fae8cc; /* Plus chaud, plus saturé (était #F5E6D3) */
-  --sand: #fff5e6; /* Plus clair et chaud (était #FBF1E3) */
-  --sand-deep: #f0d9b8; /* Plus saturé (était #E9D5BC) */
+  /* ===== Brand Palette - Automne Doux / Printemps Chaud ===== */
+  --primary: #b95a40; /* Terracotta - Couleur signature */
+  --primary-hover: #d16d52;
+  --primary-active: #a04a32;
+  --secondary: #8a8a68; /* Kaki Doux - Accent naturel */
+  --accent-camel: #c39d6b; /* Camel - Secondaire chaleureux */
+  --accent-beige: #e6d9c3; /* Beige - Secondaire doux */
+  --ink: #1d2c3b; /* Bleu Marine très sombre - Texte principal */
+  --charcoal: #2d3748;
+  /* Fonds - Palette Ivoire/Beige Sable */
+  --parchment: #fbf8f3; /* Ivoire/Beige Sable principal */
+  --sand: #faf6f0; /* Variation plus claire */
+  --sand-deep: #f0e9dc; /* Variation plus profonde */
 
   /* ===== Surfaces & Text ===== */
   --bg: var(--parchment);
   --surface: var(--sand);
-  --surface-elevated: #fff0d9; /* Plus clair (était #F8EBD9) */
+  --surface-elevated: #ffffff; /* Blanc cassé pour élévation */
   --surface-dimmed: var(--sand-deep);
-  --surface-contrast: #e8d4b8; /* Plus saturé (était #DCC6AD) */
+  --surface-contrast: #e8e0d5; /* Contraste subtil */
   --text: var(--ink);
-  --text-secondary: #3f4b5f;
-  --text-tertiary: #5a6677;
-  --muted: #6e7687;
-  --text-inverse: #ffffff;
-  --text-on-dark: #f6f3ef; /* Texte sur fond sombre premium */
-  --border: #d8c6b4;
-  --border-strong: #baa68e;
+  --text-secondary: #4a5568;
+  --text-tertiary: #6b7280;
+  --muted: #9ca3af;
+  --text-inverse: #fefefe;
+  --text-on-dark: #f7f5f2; /* Texte sur fond sombre premium */
+  --border: #ddd5c8;
+  --border-strong: #c5b9a8;
 
   /* ===== Hero & Dark Sections ===== */
   --hero-fallback-dark: #0f1926;
@@ -50,11 +52,11 @@
   --accent-gold: #f3b47a;
   --ring: #e8c4b4;
 
-  /* ===== Typography ===== */
-  --font-display: 'Newsreader', serif;
-  --font-serif: 'Newsreader', serif;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  /* ===== Typography - Premium Pairing ===== */
+  --font-display: 'Playfair Display', serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --font-accent: 'Cormorant', serif;
 
   --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
@@ -136,8 +138,8 @@
   --scroll-cta-shadow: 0 6px 12px rgba(184, 68, 30, 0.35);
 
   /* ===== Textures ===== */
-  /* GRAIN DÉSACTIVÉ - Contribuait au voile gris */
-  --grain: none;
+  /* Grain subtil pour profondeur organique */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03' /%3E%3C/svg%3E");
 
   /* ===== Layers ===== */
   --z-sticky: 1100;
