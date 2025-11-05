@@ -283,7 +283,7 @@ section:nth-of-type(even) {
 /* Primary Button - Brique Premium */
 .btn--primary {
   background-color: var(--primary);
-  color: white;
+  color: white !important; /* Force contraste WCAG */
   box-shadow: var(--shadow-md);
 }
 
@@ -292,13 +292,14 @@ section:nth-of-type(even) {
   /* Effet papier décollé subtil */
   box-shadow: var(--shadow-lift);
   transform: translateY(-3px);
-  color: white;
+  color: white !important; /* Force contraste WCAG */
 }
 
 .btn--primary:active {
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
   background-color: var(--primary-active);
+  color: white !important; /* Force contraste WCAG */
 }
 
 /* Secondary Button - Outline raffiné */
@@ -419,7 +420,7 @@ section:nth-of-type(even) {
 
 .nav.visible .nav__logo,
 .nav.visible .nav__link {
-  color: var(--text); /* Bleu marine sur glassmorphism */
+  color: #1d2c3b !important; /* Bleu marine sur glassmorphism - Force lisibilité */
 }
 
 .nav .nav__logo:hover,
@@ -1607,17 +1608,19 @@ section:nth-of-type(even) {
   border-color: var(--accent);
   transform: scale(1.05);
   box-shadow: var(--glow-accent);
+  color: white !important; /* Force contraste WCAG sur gradient */
 }
 
 .case-card__audio-btn--featured {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--bg);
+  color: white !important; /* Force contraste WCAG */
 }
 
 .case-card__audio-btn--featured:hover {
   background: var(--primary);
   border-color: var(--primary);
+  color: white !important; /* Force contraste WCAG */
 }
 
 .case-card__audio-btn .audio-icon {
@@ -3082,7 +3085,7 @@ section:nth-of-type(even) {
 }
 
 .footer__links a:hover {
-  color: var(--accent-2);
+  color: var(--primary); /* Terracotta au hover */
 }
 
 /* Newsletter */
@@ -3166,7 +3169,8 @@ section:nth-of-type(even) {
   justify-content: center;
   position: fixed;
   bottom: var(--space-8);
-  right: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
   opacity: 0;
   pointer-events: none;
@@ -3181,7 +3185,7 @@ section:nth-of-type(even) {
 
 .footer__back-to-top:hover {
   background-color: var(--accent);
-  transform: translateY(-4px);
+  transform: translateX(-50%) translateY(-4px);
 }
 
 .footer__back-to-top svg {

@@ -208,6 +208,9 @@ class App {
 
     // Back to top
     this.initBackToTop();
+
+    // Bento Grid audio buttons
+    this.initBentoAudioButtons();
   }
 
   start() {
@@ -629,6 +632,26 @@ class App {
         this.modules.smoothScroll.scrollTo(0, { duration: 2 });
       });
     }
+  }
+
+  // ========== BENTO GRID AUDIO BUTTONS ==========
+  initBentoAudioButtons() {
+    const audioButtons = document.querySelectorAll('.case-card__audio-btn[data-scroll-to]');
+
+    audioButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = button.getAttribute('data-scroll-to');
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection && this.modules.smoothScroll) {
+          this.modules.smoothScroll.scrollTo(targetSection, {
+            offset: -100,
+            duration: 1.5,
+          });
+        }
+      });
+    });
   }
 }
 
