@@ -388,35 +388,46 @@ a.btn--primary:visited {
    5. NAVIGATION - GLASSMORPHISM INTELLIGENT
    ============================================ */
 .nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-sticky);
+  z-index: 1000;
   padding: var(--space-6) 0;
-  /* Au départ : transparent pour laisser voir le hero */
-  background-color: transparent;
-  backdrop-filter: none;
-  border-bottom: 1px solid transparent;
+  /* Fond glassmorphism mat clair dès le départ */
+  background-color: rgba(245, 230, 211, 0.85);
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
+  backdrop-filter: saturate(1.1) blur(10px);
+  border-bottom: 1px solid rgba(216, 198, 180, 0.6);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Couleur de texte lisible par défaut */
+  --nav-fg: var(--text); /* #1A2332 sombre et lisible */
+  color: var(--nav-fg);
 }
 
-/* Texte BLANC au départ (sur hero sombre) */
+/* Évite toute dilution par blend modes */
+.nav,
+.nav * {
+  mix-blend-mode: normal;
+}
+
+/* Texte lisible avec couleur définie */
 .nav__logo,
 .nav__link {
-  color: var(--text-on-dark);
+  color: var(--nav-fg);
   text-decoration: none;
   transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover sur hero : accent */
+/* Hover : primary avec feedback visuel */
 .nav__logo:hover,
 .nav__link:hover {
-  color: var(--accent);
+  color: var(--primary);
+  text-decoration: underline;
 }
 
-/* Focus visible (accessibilité) */
+/* Focus visible (accessibilité renforcée) */
 .nav__link:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
   outline: 2px solid currentColor;
   outline-offset: 2px;
   border-radius: 4px;
@@ -424,33 +435,31 @@ a.btn--primary:visited {
 
 /* Lien actif */
 .nav__link[aria-current="page"] {
-  color: var(--accent);
+  color: var(--primary);
   font-weight: 600;
 }
 
-/* ==== Au scroll : GLASSMORPHISM ==== */
+/* ==== Au scroll : GLASSMORPHISM renforcé ==== */
 .nav.visible {
-  /* Fond glassmorphism premium */
-  background-color: rgba(251, 248, 243, 0.85);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  box-shadow: 0 2px 16px rgba(29, 44, 59, 0.08);
-  border-bottom: 1px solid rgba(221, 213, 200, 0.6);
+  /* Fond glassmorphism encore plus opaque */
+  background-color: rgba(251, 241, 227, 0.92);
+  border-bottom-color: rgba(216, 198, 180, 0.75);
+  --nav-fg: var(--text);
 }
 
-/* Texte SOMBRE au scroll (sur fond clair) */
+/* Texte au scroll - SANS !important */
 .nav.visible .nav__logo,
 .nav.visible .nav__link {
-  color: var(--ink);
+  color: var(--nav-fg);
 }
 
-/* Hover au scroll : primary */
+/* Hover au scroll : primary - SANS !important */
 .nav.visible .nav__logo:hover,
 .nav.visible .nav__link:hover {
   color: var(--primary);
 }
 
-/* Lien actif au scroll */
+/* Lien actif au scroll - SANS !important */
 .nav.visible .nav__link[aria-current="page"] {
   color: var(--primary);
 }
