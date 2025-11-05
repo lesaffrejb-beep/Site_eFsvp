@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "source": "Chunk #1 (lignes 0-1000)",
+    "source": "Chunks #1 + #2 (lignes 0-1934, fichier complet)",
     "language": "fr",
     "punctuation": "Respectée selon l'original"
   },
@@ -242,15 +242,254 @@
         "description": "Collectage et mise en musique de parcours de réinsertion pour un réseau national.",
         "category": "institutions",
         "clientFilter": "institution",
-        "typeFilter": "mediation",
-        "note": "TODO (description tronquée à la ligne 999)"
+        "typeFilter": "mediation"
+      },
+      {
+        "tag": "Spectacle",
+        "title": "État de nature",
+        "client": "PNR Loire-Anjou-Touraine",
+        "year": "2023 →",
+        "description": "Spectacle immersif joué plus de 40 fois en pleine nature. Création phare du studio.",
+        "category": "spectacles",
+        "clientFilter": "institution",
+        "typeFilter": "immersive"
+      },
+      {
+        "tag": "Immersif",
+        "title": "Déambulation historique XVe s.",
+        "client": "Ville de Clisson",
+        "year": "2023",
+        "description": "Récit immersif médiéval pour faire revivre l'histoire de la cité aux visiteurs.",
+        "category": "institutions",
+        "clientFilter": "institution",
+        "typeFilter": "immersive"
+      }
+    ]
+  },
+  "sectionProcess": {
+    "title": "Comment ça marche",
+    "subtitle": "Un process simple et rassurant en 4 étapes",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Écoute",
+        "duration": "2 semaines",
+        "description": "Vous nous racontez votre histoire, vos enjeux. Nous collectons, écoutons, immergeons.",
+        "details": [
+          "Entretiens approfondis",
+          "Documents et archives",
+          "Immersion terrain si besoin"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "Création",
+        "duration": "3-6 semaines",
+        "description": "Nous écrivons et composons votre récit. Un processus créatif rigoureux et transparent.",
+        "details": [
+          "Écriture du texte",
+          "Composition musicale",
+          "Enregistrement professionnel"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Validation",
+        "duration": "Inclus",
+        "description": "2 allers-retours inclus. Vous validez chaque étape, nous ajustons avec vous.",
+        "details": [
+          "Version 1 → Retours",
+          "Ajustements",
+          "Version 2 → Validation finale"
+        ],
+        "badge": "Transparence totale"
+      },
+      {
+        "number": "04",
+        "title": "Performance",
+        "duration": "Jour J",
+        "description": "Nous venons jouer chez vous ou nous livrons l'enregistrement audio HD.",
+        "details": [
+          "Performance live",
+          "Audio HD professionnel",
+          "Captation vidéo (option)"
+        ],
+        "badge": "Clé en main"
       }
     ],
-    "note": "TODO (à compléter chunk #2 - liste incomplète)"
+    "cta": {
+      "label": "Démarrer votre projet",
+      "href": "#contact"
+    }
+  },
+  "sectionTestimonials": {
+    "title": "Ce qu'ils disent",
+    "testimonials": [
+      {
+        "quote": "J'ai vu des gens pleurer. C'était exactement ce que je voulais sans savoir que ça existait.",
+        "name": "Marie Dupont",
+        "role": "Directrice Communication",
+        "organization": "Département Maine-et-Loire",
+        "context": "Hymne officiel \"La force de la douceur\" (2024)",
+        "avatar": "M",
+        "stars": 5
+      },
+      {
+        "quote": "Ils ont compris notre métier en deux semaines mieux que certains partenaires historiques.",
+        "name": "Pierre Martin",
+        "role": "Directeur",
+        "organization": "Atelier Lacour",
+        "context": "Récit 25 ans & passation (2024)",
+        "avatar": "P",
+        "stars": 5
+      },
+      {
+        "quote": "Dignité, vérité, émotion. Jamais gênant, toujours juste. Une approche rare et précieuse.",
+        "name": "Sophie Bernard",
+        "role": "Responsable Événementiel",
+        "organization": "Réseau Cocagne",
+        "context": "Portraits de réinsertion (2024)",
+        "avatar": "S",
+        "stars": 5
+      }
+    ]
+  },
+  "sectionStats": {
+    "title": "La preuve par les chiffres",
+    "stats": [
+      { "value": "60+", "label": "Représentations" },
+      { "value": "15+", "label": "Projets institutionnels" },
+      { "value": "1200€", "label": "À partir de" },
+      { "value": "4", "label": "Années d'expérience terrain" }
+    ]
+  },
+  "sectionContact": {
+    "visualQuote": "Toutes les bonnes histoires méritent d'être racontées.",
+    "title": "La vôtre commence maintenant",
+    "subtitle": "Réponse sous 48h · Premier échange offert",
+    "form": {
+      "fields": [
+        {
+          "id": "nom",
+          "label": "Prénom Nom",
+          "type": "text",
+          "required": true,
+          "autocomplete": "name"
+        },
+        {
+          "id": "email",
+          "label": "Email professionnel",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email"
+        },
+        {
+          "id": "organisation",
+          "label": "Organisation",
+          "type": "text",
+          "required": true,
+          "autocomplete": "organization"
+        },
+        {
+          "id": "type-projet",
+          "label": "Type de projet",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "", "label": "Sélectionner" },
+            { "value": "anniversaire", "label": "Anniversaire" },
+            { "value": "inauguration", "label": "Inauguration" },
+            { "value": "spectacle", "label": "Spectacle" },
+            { "value": "hymne", "label": "Hymne / Identité" },
+            { "value": "autre", "label": "Autre" }
+          ]
+        },
+        {
+          "id": "date",
+          "label": "Date envisagée",
+          "type": "date",
+          "required": false
+        },
+        {
+          "id": "budget",
+          "label": "Budget estimé",
+          "type": "range",
+          "required": false,
+          "min": 3000,
+          "max": 30000,
+          "step": 1000,
+          "default": 10000
+        },
+        {
+          "id": "message",
+          "label": "Parlez-nous de votre projet",
+          "type": "textarea",
+          "required": true,
+          "rows": 5,
+          "maxLength": 500
+        }
+      ],
+      "consent": "J'accepte d'être recontacté pour échanger sur mon projet",
+      "submitLabel": "Partagez votre histoire"
+    },
+    "alternative": {
+      "title": "Ou contactez-nous directement",
+      "email": "contact@efsvp.fr",
+      "location": "Basé à Angers · Partout en Francophonie"
+    }
+  },
+  "footer": {
+    "brand": {
+      "logo": "En français s'il vous plaît",
+      "tagline": "\"Vous avez déjà écrit l'histoire\"",
+      "baseline": "Studio narratif & musical"
+    },
+    "navigation": {
+      "title": "Navigation",
+      "links": [
+        { "label": "Créations", "href": "#creations" },
+        { "label": "Services", "href": "#services" },
+        { "label": "Portfolio", "href": "#portfolio" },
+        { "label": "Process", "href": "#process" },
+        { "label": "FAQ", "href": "#faq" },
+        { "label": "Contact", "href": "#contact" }
+      ]
+    },
+    "legal": {
+      "title": "Informations",
+      "links": [
+        { "label": "Mentions légales", "href": "#mentions" },
+        { "label": "CGV", "href": "#cgv" },
+        { "label": "Confidentialité", "href": "#confidentialite" },
+        { "label": "RGPD", "href": "#rgpd" }
+      ]
+    },
+    "newsletter": {
+      "title": "Restez inspiré",
+      "text": "1 email/mois · Projets & coulisses",
+      "placeholder": "Votre email"
+    },
+    "bottom": {
+      "copyright": "© 2025 En français s'il vous plaît · Tous droits réservés",
+      "made": "Made with ♥ in Angers"
+    }
+  },
+  "modals": {
+    "success": {
+      "title": "Message envoyé !",
+      "text": "Merci {name} ! On vous répond sous 48h.",
+      "cta": "Continuer"
+    }
+  },
+  "cookieBanner": {
+    "title": "Respect de votre vie privée",
+    "description": "Nous n'utilisons aucun cookie publicitaire ou de tracking. Ce site fonctionne sans collecte de données personnelles. En poursuivant votre navigation, vous acceptez l'utilisation de cookies techniques nécessaires au bon fonctionnement du site.",
+    "accept": "J'ai compris",
+    "reject": "Refuser"
   },
   "notes": [
-    "Contenu extrait du chunk #1 (lignes 0-1000)",
-    "La section Portfolio est incomplète - nécessite chunk #2",
-    "Toute la ponctuation FR a été respectée (guillemets, espaces, etc.)"
+    "Contenu complet extrait des chunks #1 + #2 (fichier entier)",
+    "Toute la ponctuation FR a été respectée (guillemets, espaces, etc.)",
+    "Sections complètes : Hero, Créations, Cases, Services, Portfolio (6 projets), Process (4 étapes), Testimonials (3), Stats (4), Contact, Footer"
   ]
 }

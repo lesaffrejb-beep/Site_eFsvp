@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "source": "Chunk #1 (lignes 0-1000)",
+    "source": "Chunks #1 + #2 (fichier complet)",
     "exportPlan": {
       "format": "WebP",
       "resolution": "@2x",
       "maxWidth": "1600px",
       "namingConvention": "kebab-case"
     },
-    "note": "Liste préliminaire - pas d'optimisation réelle effectuée"
+    "note": "Analyse complète : le site utilise principalement des gradients CSS plutôt que des images réelles. Seuls les médias hero (vidéos) et favicon sont référencés."
   },
   "videos": [
     {
@@ -36,12 +36,6 @@
     }
   ],
   "images": [],
-  "todoChunk2": [
-    "Chercher d'autres images référencées dans les sections suivantes",
-    "Identifier les images de portfolio si présentes",
-    "Lister les logos clients si présents",
-    "Vérifier les images de fond de section"
-  ],
   "webflowAssetStructure": {
     "folders": [
       "/assets/videos/",

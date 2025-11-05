@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "source": "Chunk #1 (lignes 0-1000)",
-    "note": "Pas de section dédiée 'La preuve par les chiffres' trouvée dans ce chunk. Stats extraites de différentes sections."
+    "source": "Chunks #1 + #2 (fichier complet)",
+    "note": "Section dédiée 'La preuve par les chiffres' trouvée dans chunk #2 (lignes 1354-1378)."
   },
   "heroMetrics": [
     {
@@ -27,6 +27,31 @@
       "label": "institutions"
     }
   ],
+  "preuveParLesChiffres": {
+    "title": "La preuve par les chiffres",
+    "stats": [
+      {
+        "value": "60+",
+        "label": "Représentations",
+        "dataCount": 60
+      },
+      {
+        "value": "15+",
+        "label": "Projets institutionnels",
+        "dataCount": 15
+      },
+      {
+        "value": "1200€",
+        "label": "À partir de",
+        "dataCount": null
+      },
+      {
+        "value": "4",
+        "label": "Années d'expérience terrain",
+        "dataCount": 4
+      }
+    ]
+  },
   "casesMetrics": {
     "sival": {
       "recitsDiffuses": "8 récits diffusés",
@@ -44,10 +69,5 @@
       "satisfaction": "94%",
       "programmation": "reconduite 2025-2026"
     }
-  },
-  "todoChunk2": [
-    "Chercher section 'La preuve par les chiffres' si elle existe",
-    "Vérifier s'il y a d'autres métriques de performance",
-    "Compléter les stats de conversion si présentes"
-  ]
+  }
 }
