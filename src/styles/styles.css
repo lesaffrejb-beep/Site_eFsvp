@@ -230,87 +230,67 @@ section:nth-of-type(even) {
 /* ============================================
    4. BUTTON SYSTEM - AWARD PRESTIGE
    ============================================ */
+/* CTA — bouton DA unifié */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-8);
+  gap: 0.5rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: var(--r-lg);
+  border: 1px solid transparent;
+  padding: 0.8rem 1.1rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease), background-color var(--dur-1) var(--ease);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  font-weight: 600;
-  border-radius: var(--border-radius-full);
-  /* Transition élégante et lente */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  cursor: pointer;
-  border: none;
   text-decoration: none;
+  cursor: pointer;
   min-height: 44px;
   letter-spacing: 0.01em;
-  overflow: hidden;
 }
 
-.btn > * {
-  position: relative;
-  z-index: 1;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
-  transform: translateX(-120%);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn:hover::before {
-  transform: translateX(120%);
-}
-
-.btn__icon {
-  width: 20px;
-  height: 20px;
-  /* Transition synchronisée avec le bouton */
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn:hover .btn__icon {
-  transform: translateX(4px);
-}
-
-/* Primary Button - Brique Premium */
-.btn--primary,
-a.btn--primary {
-  background-color: var(--primary);
-  color: white;
-  box-shadow: var(--shadow-md);
+/* Primary Button - Variant principal */
+.btn--primary {
+  background: var(--primary);
+  color: var(--bg);
+  border-color: var(--primary);
 }
 
 .btn--primary:hover,
-a.btn--primary:hover {
-  background-color: var(--primary-hover);
-  /* Effet papier décollé subtil */
-  box-shadow: var(--shadow-lift);
-  transform: translateY(-3px);
-  color: white;
-}
-
-.btn--primary:active,
-a.btn--primary:active {
+.btn--primary:focus-visible {
   transform: translateY(-1px);
+  box-shadow: var(--shadow-lift);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.btn--primary:active {
+  transform: translateY(0);
   box-shadow: var(--shadow-sm);
-  background-color: var(--primary-active);
-  color: white;
 }
 
-.btn--primary:visited,
-a.btn--primary:visited {
-  color: white;
+.btn--primary:visited {
+  color: var(--bg);
 }
 
-/* Secondary Button - Outline raffiné */
+/* Ghost Button - Variant secondaire */
+.btn--ghost {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lift);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Secondary Button - Outline */
 .btn--secondary {
   background-color: transparent;
   color: var(--text);
@@ -318,12 +298,14 @@ a.btn--primary:visited {
   box-shadow: none;
 }
 
-.btn--secondary:hover {
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
   border-color: var(--primary);
   color: var(--primary);
-  background-color: color-mix(in srgb, var(--primary) 12%, white 88%);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .btn--secondary:active {
@@ -421,13 +403,11 @@ a.btn--primary:visited {
 .nav__logo:hover,
 .nav__link:hover {
   color: var(--primary);
-  text-decoration: underline;
 }
 
 /* Focus visible (accessibilité renforcée) */
 .nav__link:focus-visible {
   color: var(--primary);
-  text-decoration: underline;
   outline: 2px solid currentColor;
   outline-offset: 2px;
   border-radius: 4px;
@@ -468,13 +448,20 @@ a.btn--primary:visited {
   background-color: var(--text);
 }
 
+/* NAV — centrage des 4 liens */
 .nav__container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav__center {
+  display: flex;
+  justify-content: center;
 }
 
 .nav__logo {
@@ -492,37 +479,32 @@ a.btn--primary:visited {
 
 .nav__list {
   display: flex;
-  gap: var(--space-8);
-  list-style: none;
-  margin: 0;
+  gap: 2rem;
+  margin: 0 auto;
   padding: 0;
+  list-style: none;
 }
 
+.nav__list li {
+  display: inline-flex;
+}
+
+/* Liens nav : underline unique et accessible */
 .nav__link {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: 500;
-  position: relative;
   padding: var(--space-2) 0;
   transition: color var(--dur-2) var(--ease);
   text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1.5px;
 }
 
-/* Underline animé brique */
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: width var(--dur-2) var(--ease);
-}
-
-.nav__link:hover::after,
-.nav__link:focus-visible::after {
-  width: 100%;
+.nav__link:hover,
+.nav__link:focus-visible {
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
 }
 
 /* Mobile Toggle */
@@ -601,8 +583,7 @@ a.btn--primary:visited {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--hero-fallback-dark);
-  background-image: radial-gradient(circle at 20% 20%, #d37f48 0%, #132132 55%, #0f1926 100%);
+  background-color: var(--text);
   background-size: cover;
   background-position: center;
 }
@@ -613,12 +594,7 @@ a.btn--primary:visited {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    160deg,
-    rgba(9, 15, 24, 0.78) 0%,
-    rgba(9, 15, 24, 0.55) 55%,
-    rgba(9, 15, 24, 0.18) 100%
-  );
+  background: rgba(9, 15, 24, 0.65);
   z-index: 1;
   pointer-events: none;
   /* Isolation stricte : overlay reste dans .hero uniquement */
@@ -844,8 +820,8 @@ a.btn--primary:visited {
   }
 
   .hero__video-placeholder {
-    /* Afficher le poster à la place (si défini via inline style), sinon garder le gradient sombre */
-    background-image: radial-gradient(circle at 20% 20%, #d37f48 0%, #132132 55%, #0f1926 100%);
+    /* Afficher le poster à la place (si défini via inline style) */
+    background-color: var(--text);
     background-size: cover;
     background-position: center;
   }
@@ -902,8 +878,8 @@ a.btn--primary:visited {
    6.5. Section Knowledge - Pré-qualif
    ============================================ */
 .knowledge {
-  background: linear-gradient(180deg, #f5e6d3 0%, #f1d8bf 40%, #ffffff 100%);
-  color: var(--ink, #1a2332);
+  background: var(--bg);
+  color: var(--text);
   padding: clamp(var(--space-16), 12vw, var(--space-32)) var(--space-6);
 }
 
@@ -965,16 +941,7 @@ a.btn--primary:visited {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 1px solid transparent;
-  background: linear-gradient(135deg, rgba(184, 68, 30, 0.12), rgba(232, 146, 79, 0.12)) border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+  border: 1px solid var(--border);
   pointer-events: none;
 }
 
@@ -1159,7 +1126,7 @@ a.btn--primary:visited {
   gap: var(--space-4);
   padding: var(--space-6);
   border: 2px solid var(--secondary); /* Kaki doux pour accent */
-  background: linear-gradient(135deg, var(--surface-elevated) 0%, var(--sand) 100%);
+  background: var(--surface-elevated);
 }
 
 .audio-player__artwork {
@@ -1340,7 +1307,7 @@ a.btn--primary:visited {
 
 /* ========== Info Cards ========== */
 .info-card {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
+  background: var(--accent);
   color: white;
   padding: var(--space-8);
   border-radius: 16px;
@@ -1390,7 +1357,7 @@ a.btn--primary:visited {
 }
 
 .info-card--accent {
-  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-gold) 100%);
+  background: var(--accent-2);
 }
 
 /* ========== Quote Card ========== */
@@ -1502,7 +1469,7 @@ a.btn--primary:visited {
 .card--stat {
   text-align: center;
   padding: var(--space-8);
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-elevated) 100%);
+  background: var(--surface-elevated);
 }
 
 /* ============================================
@@ -1544,7 +1511,7 @@ a.btn--primary:visited {
   position: absolute;
   inset: 1px;
   border-radius: var(--border-radius);
-  background: linear-gradient(140deg, rgba(248, 234, 216, 0.25) 0%, rgba(248, 234, 216, 0) 55%);
+  background: rgba(248, 234, 216, 0.15);
   opacity: 0;
   transition: opacity var(--duration-base) var(--ease-smooth);
   pointer-events: none;
@@ -1703,7 +1670,7 @@ a.case-card__audio-btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+  background: var(--primary);
   opacity: 0;
   transition: opacity var(--duration-base) var(--ease-smooth);
   z-index: -1;
@@ -1878,7 +1845,7 @@ a.case-card__audio-btn--featured:hover {
 
 /* Featured Service Card */
 .service-card--featured {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
+  background: var(--accent);
   color: white;
   border-color: var(--accent-gold);
   box-shadow: var(--shadow-xl);
@@ -2123,13 +2090,13 @@ a.case-card__audio-btn--featured:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  background: rgba(0, 0, 0, 0.6);
   transition: background var(--transition-base);
 }
 
 /* Hover reveal avec overlay ambre 12% */
 .portfolio-card:hover .portfolio-card__overlay {
-  background: linear-gradient(180deg, rgba(232, 146, 79, 0.12) 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .portfolio-card__content {
@@ -2231,12 +2198,8 @@ a.case-card__audio-btn--featured:hover {
   left: 40px;
   width: 2px;
   height: calc(100% + var(--space-16));
-  background: linear-gradient(
-    180deg,
-    rgba(184, 68, 30, 0.8) 0%,
-    rgba(232, 146, 79, 0.45) 50%,
-    rgba(245, 230, 211, 0.2) 100%
-  );
+  background: var(--primary);
+  opacity: 0.6;
   transform: translateX(-50%);
   z-index: 1;
   box-shadow: 0 0 14px rgba(184, 68, 30, 0.25);
@@ -2247,7 +2210,7 @@ a.case-card__audio-btn--featured:hover {
 }
 
 .process__step-content {
-  background: linear-gradient(135deg, var(--surface-elevated) 0%, var(--surface) 100%);
+  background: var(--surface-elevated);
   border: 1px solid var(--border);
   border-radius: var(--border-radius);
   padding: var(--space-10);
@@ -2334,7 +2297,7 @@ a.case-card__audio-btn--featured:hover {
    11. TESTIMONIALS
    ============================================ */
 .testimonials {
-  background: linear-gradient(180deg, #0f141a 0%, #141e26 100%);
+  background: var(--text);
   position: relative;
   color: white;
 }
@@ -2397,7 +2360,7 @@ a.case-card__audio-btn--featured:hover {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  background: var(--accent);
   color: white;
   display: flex;
   align-items: center;
@@ -2453,60 +2416,13 @@ a.case-card__audio-btn--featured:hover {
    ============================================ */
 .stats {
   /* Design cohérent avec palette beige/parchemin du site */
-  background: linear-gradient(
-    180deg,
-    var(--surface) 0%,
-    var(--bg) 50%,
-    var(--surface-elevated) 100%
-  );
+  background: var(--bg);
   color: var(--text);
   position: relative;
   overflow: hidden;
   padding: clamp(5rem, 14vw, 10rem) 0;
   border-top: none;
   border-bottom: none;
-}
-
-/* Accent moderne avec blur artistique */
-.stats::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(
-    circle,
-    rgba(232, 146, 79, 0.12) 0%,
-    rgba(184, 68, 30, 0.06) 40%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-  animation: float 20s ease-in-out infinite;
-}
-
-/* Accent secondaire gauche */
-.stats::after {
-  content: '';
-  position: absolute;
-  bottom: -20%;
-  left: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(
-    circle,
-    rgba(232, 146, 79, 0.08) 0%,
-    rgba(184, 68, 30, 0.04) 50%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  filter: blur(70px);
-  pointer-events: none;
-  z-index: 0;
-  animation: float 15s ease-in-out infinite reverse;
 }
 
 .stats__header {
@@ -2520,10 +2436,7 @@ a.case-card__audio-btn--featured:hover {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, var(--text) 0%, #b8441e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text);
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 0.5rem;
@@ -2573,7 +2486,7 @@ a.case-card__audio-btn--featured:hover {
   position: absolute;
   inset: 0;
   border-radius: 24px;
-  background: linear-gradient(135deg, rgba(232, 146, 79, 0.08) 0%, rgba(184, 68, 30, 0.05) 100%);
+  background: rgba(232, 146, 79, 0.08);
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
@@ -2592,12 +2505,8 @@ a.case-card__audio-btn--featured:hover {
   display: block;
   position: relative;
   z-index: 1;
-  /* Couleur solide pour contraste AA - gradient en fallback */
+  /* Couleur solide pour contraste AA */
   color: var(--text);
-  background: linear-gradient(135deg, var(--text) 0%, var(--primary) 60%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   letter-spacing: -0.02em;
 }
 
@@ -2867,7 +2776,7 @@ a.case-card__audio-btn--featured:hover {
   top: 0;
   height: 100%;
   width: var(--value, 50%);
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: var(--accent);
   border-radius: 3px;
   pointer-events: none;
 }
@@ -2890,7 +2799,7 @@ a.case-card__audio-btn--featured:hover {
 /* Left Visual */
 .contact__visual {
   position: relative;
-  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+  background: var(--accent);
   border-radius: 16px;
   padding: var(--space-12);
   display: flex;
@@ -3218,7 +3127,7 @@ a.case-card__audio-btn--featured:hover {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: var(--accent);
 }
 
 .footer__baseline {
