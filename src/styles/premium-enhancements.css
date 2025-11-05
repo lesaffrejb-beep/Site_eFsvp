@@ -521,10 +521,26 @@ li a {
 /* ========== BACKDROP BLUR ON SCROLL ========== */
 /* Header avec backdrop blur au scroll */
 .nav.scrolled {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(250, 232, 204, 0.9);
-  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(15, 20, 26, 0.85);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Force text visibility on scrolled nav */
+.nav.scrolled .nav__logo,
+.nav.scrolled .nav__link {
+  color: var(--text-on-dark);
+}
+
+.nav.scrolled .nav__logo:hover,
+.nav.scrolled .nav__link:hover {
+  color: var(--accent-hover);
+}
+
+.nav.scrolled .nav__toggle span {
+  background-color: var(--text-on-dark);
 }
 
 /* ========== PREMIUM SHADOWS ON SCROLL ========== */
