@@ -367,8 +367,13 @@ section:nth-of-type(even) {
   z-index: var(--z-sticky);
   padding: var(--space-6) 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateY(-100%);
-  opacity: 0;
+  transform: translateY(0);
+  opacity: 1;
+  background-color: rgba(15, 20, 26, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav.visible {
@@ -409,7 +414,7 @@ section:nth-of-type(even) {
   font-family: var(--font-serif);
   font-size: var(--text-xl);
   font-weight: 700;
-  color: var(--text);
+  color: #FFFFFF;
   transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: -0.01em;
 }
@@ -430,7 +435,7 @@ section:nth-of-type(even) {
   font-weight: 500;
   position: relative;
   padding: var(--space-2) 0;
-  color: var(--text);
+  color: rgba(255, 255, 255, 0.9);
   transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -468,7 +473,7 @@ section:nth-of-type(even) {
 .nav__toggle span {
   width: 24px;
   height: 2px;
-  background-color: var(--text);
+  background-color: #FFFFFF;
   transition: all var(--transition-base);
   border-radius: 2px;
 }
@@ -2158,49 +2163,61 @@ section:nth-of-type(even) {
    12. STATS SECTION - BIG NUMBERS PRESTIGE
    ============================================ */
 .stats {
-  /* Fond sombre premium avec gradient riche */
+  /* Design moderne 2025/2026 - Fond lumineux avec gradient subtil */
   background: linear-gradient(
-    135deg,
-    #0F141A 0%,
-    #1A2332 50%,
-    #0F141A 100%
+    180deg,
+    #FAFBFC 0%,
+    #FFFFFF 50%,
+    #F8F9FA 100%
   );
-  color: white;
+  color: var(--text);
   position: relative;
   overflow: hidden;
-  padding: var(--space-32) 0;
-  border-top: 1px solid rgba(184, 68, 30, 0.2);
-  border-bottom: 1px solid rgba(184, 68, 30, 0.2);
+  padding: clamp(5rem, 14vw, 10rem) 0;
+  border-top: none;
+  border-bottom: none;
 }
 
-/* Accent gradient overlay subtil */
+/* Accent moderne avec blur artistique */
 .stats::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(
-    circle at 30% 50%,
-    rgba(184, 68, 30, 0.08) 0%,
-    transparent 60%
+    circle,
+    rgba(232, 146, 79, 0.12) 0%,
+    rgba(184, 68, 30, 0.06) 40%,
+    transparent 70%
   );
-  opacity: 1;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
   z-index: 0;
+  animation: float 20s ease-in-out infinite;
 }
 
-/* Pattern decoratif */
+/* Accent secondaire gauche */
 .stats::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 1;
+  bottom: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(232, 146, 79, 0.08) 0%,
+    rgba(184, 68, 30, 0.04) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
   z-index: 0;
+  animation: float 15s ease-in-out infinite reverse;
 }
 
 .stats__header {
@@ -2212,69 +2229,80 @@ section:nth-of-type(even) {
 
 .stats__title {
   font-family: var(--font-serif);
-  font-size: var(--text-4xl);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: -0.02em;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    135deg,
+    var(--text) 0%,
+    #B8441E 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
 }
 
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(1.5rem, 4vw, 2.5rem);
   position: relative;
   z-index: 1;
+  margin-top: var(--space-12);
 }
 
 @media (min-width: 768px) {
   .stats__grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
+    gap: clamp(2rem, 3vw, 3rem);
   }
 }
 
 .stat-card {
   text-align: center;
-  padding: var(--space-10);
-  border-radius: var(--radius-lg);
-  /* Fond glassmorphism avec plus de contraste */
+  padding: clamp(2rem, 5vw, 3rem);
+  border-radius: 24px;
+  /* Design moderne 2025 - Carte lumineuse avec ombre subtile */
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.6) 100%
   );
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 146, 79, 0.15);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: relative;
   z-index: 1;
-  transition:
-    transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
-  border-color: rgba(232, 146, 79, 0.4);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(232, 146, 79, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgba(232, 146, 79, 0.3);
 }
 
-/* Subtle accent glow on hover */
+/* Accent gradient subtil au hover */
 .stat-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: var(--radius-lg);
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(232, 146, 79, 0.15) 0%,
-    transparent 70%
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(232, 146, 79, 0.08) 0%,
+    rgba(184, 68, 30, 0.05) 100%
   );
   opacity: 0;
-  transition: opacity var(--transition-base);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
 }
 
@@ -2284,33 +2312,49 @@ section:nth-of-type(even) {
 
 .stat-card__number {
   font-family: var(--font-sans);
-  font-size: clamp(3rem, 8vw, 4rem);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   font-weight: 800;
   line-height: 1;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   display: block;
-  /* Gradient text pour les chiffres */
+  position: relative;
+  z-index: 1;
+  /* Gradient moderne 2025 */
   background: linear-gradient(
     135deg,
-    #FFFFFF 0%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(232, 146, 79, 1) 100%
+    #1A1A1A 0%,
+    #B8441E 60%,
+    #E8924F 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  letter-spacing: -0.02em;
 }
 
 .stat-card__label {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.5;
-  font-weight: 500;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: rgba(26, 26, 26, 0.7);
+  line-height: 1.6;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation float pour les accents de fond */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, -30px);
+  }
+  66% {
+    transform: translate(-20px, 20px);
+  }
 }
 
 /* ============================================
