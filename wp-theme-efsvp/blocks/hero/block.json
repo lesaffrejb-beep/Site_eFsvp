@@ -34,6 +34,14 @@
       "type": "object",
       "default": null
     },
+    "backgroundVideo": {
+      "type": "object",
+      "default": null
+    },
+    "posterImage": {
+      "type": "object",
+      "default": null
+    },
     "ctaText": {
       "type": "string",
       "default": "Partagez votre histoire"
@@ -41,6 +49,14 @@
     "ctaUrl": {
       "type": "string",
       "default": "#contact"
+    },
+    "enableOverlay": {
+      "type": "boolean",
+      "default": true
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#0f141a"
     },
     "overlayOpacity": {
       "type": "number",
@@ -53,8 +69,26 @@
     "showMetrics": {
       "type": "boolean",
       "default": true
+    },
+    "metrics": {
+      "type": "array",
+      "default": [
+        {
+          "value": "60+",
+          "label": "Représentations"
+        },
+        {
+          "value": "15+",
+          "label": "Projets institutionnels"
+        },
+        {
+          "value": "1200€",
+          "label": "À partir de"
+        }
+      ]
     }
   },
+  "editorScript": "file:./editor.js",
   "editorStyle": "file:./editor.css",
   "style": "file:./style.css"
 }

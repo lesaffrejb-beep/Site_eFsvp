@@ -48,7 +48,11 @@ function efsvp_theme_setup() {
     add_theme_support('align-wide');
     add_theme_support('align-full');
 
-    // Editor styles & fonts parity with front-end
+    // Allow usage of block templates and parts within the classic theme
+    add_theme_support('block-templates');
+    add_theme_support('block-template-parts');
+
+    // Editor styles
     add_theme_support('editor-styles');
     add_editor_style([
         'assets/css/design-tokens.css',

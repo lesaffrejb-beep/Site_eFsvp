@@ -22,6 +22,7 @@ require_once EFSVP_THEME_DIR . '/inc/theme-setup.php';
 require_once EFSVP_THEME_DIR . '/inc/enqueue-scripts.php';
 require_once EFSVP_THEME_DIR . '/inc/gutenberg-config.php';
 require_once EFSVP_THEME_DIR . '/inc/customizer.php';
+require_once EFSVP_THEME_DIR . '/inc/block-patterns.php';
 
 /**
  * Register custom blocks

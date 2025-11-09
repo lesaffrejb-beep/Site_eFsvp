@@ -199,6 +199,79 @@ body {
   background-size: 300px 300px;
 }
 
+/* =============================
+   Hero immersive pattern
+   ============================= */
+.hero-immersif {
+  position: relative;
+}
+
+.hero-immersif .hero__scroll {
+  position: absolute;
+  bottom: clamp(var(--space-8), 8vh, var(--space-16));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base),
+    color var(--transition-base);
+  animation: hero-scroll-bounce 2s ease-in-out infinite;
+}
+
+.hero-immersif .hero__scroll:hover,
+.hero-immersif .hero__scroll:focus-visible {
+  color: rgba(255, 255, 255, 0.95);
+  transform: translate(-50%, -4px);
+}
+
+.hero-immersif .hero__scroll.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-immersif .hero__scroll-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hero-immersif .hero__scroll-chevron {
+  width: 28px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-immersif .hero__scroll-chevron svg {
+  display: block;
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
 /* ========== TYPOGRAPHY PREMIUM ========== */
 h1,
 h2,
