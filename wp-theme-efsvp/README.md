@@ -141,6 +141,14 @@ Toutes les tailles sont fluides et responsive avec `clamp()`.
 Système basé sur 8px (0.5rem) pour une cohérence parfaite:
 - `--space-2` à `--space-32` (8px à 128px)
 
+### Synchronisation Gutenberg / Design Tokens
+
+- `theme.json` expose la palette EfSVP via `settings.color.palette` afin que l'éditeur Gutenberg retrouve exactement les couleurs `--primary`, `--secondary`, `--accent-*` définies dans `assets/css/design-tokens.css`.
+- Les familles de caractères Playfair Display, Inter et Cormorant sont déclarées dans `theme.json` (`settings.typography.fontFamilies`) et chargées côté front & éditeur via `inc/enqueue-scripts.php` et `inc/theme-setup.php`. Elles correspondent aux variables `--font-display`, `--font-body` et `--font-accent` des tokens CSS.
+- L'échelle d'espacements Gutenberg (`settings.spacing.spacingSizes`) reflète la grille `--space-*` incluse dans `assets/css/design-tokens.css`, garantissant des valeurs identiques entre l'éditeur et le front.
+
+> ℹ️ Le fichier `assets/css/design-tokens.css` est généré depuis la maquette (`src/styles/design-tokens.css`) et chargé globalement avant `design-system.css`. Toute mise à jour des tokens doit être répercutée dans ces deux emplacements pour conserver la parité éditeur/front.
+
 ## 📱 Responsive
 
 Le thème est **mobile-first** avec breakpoints:

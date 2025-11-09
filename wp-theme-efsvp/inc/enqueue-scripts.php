@@ -24,11 +24,19 @@ function efsvp_enqueue_assets() {
         null
     );
 
+    // Global design tokens (shared with front & editor)
+    wp_enqueue_style(
+        'efsvp-design-tokens',
+        EFSVP_THEME_URI . '/assets/css/design-tokens.css',
+        [],
+        EFSVP_VERSION
+    );
+
     // Design System CSS
     wp_enqueue_style(
         'efsvp-design-system',
         EFSVP_THEME_URI . '/assets/css/design-system.css',
-        [],
+        ['efsvp-design-tokens'],
         EFSVP_VERSION
     );
 
@@ -42,8 +50,16 @@ function efsvp_enqueue_assets() {
 
     // Component styles
     wp_enqueue_style(
-        'efsvp-components',
+        'efsvp-header',
         EFSVP_THEME_URI . '/assets/css/components/header.css',
+        ['efsvp-design-system'],
+        EFSVP_VERSION
+    );
+
+    // Button styles
+    wp_enqueue_style(
+        'efsvp-buttons',
+        EFSVP_THEME_URI . '/assets/css/components/buttons.css',
         ['efsvp-design-system'],
         EFSVP_VERSION
     );
@@ -108,3 +124,26 @@ function efsvp_resource_hints($urls, $relation_type) {
     return $urls;
 }
 add_filter('wp_resource_hints', 'efsvp_resource_hints', 10, 2);
+
+/**
+ * Enqueue WaveSurfer.js for audio blocks only when needed.
+ */
+function efsvp_enqueue_audio_block_assets() {
+    $handle     = 'wavesurfer';
+    $script_src = 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js';
+    $version    = '7.7.11';
+
+    if (!wp_script_is($handle, 'registered')) {
+        wp_register_script($handle, $script_src, [], $version, true);
+    }
+
+    if (is_admin()) {
+        wp_enqueue_script($handle);
+        return;
+    }
+
+    if (function_exists('has_block') && has_block('efsvp/audio-bento')) {
+        wp_enqueue_script($handle);
+    }
+}
+add_action('enqueue_block_assets', 'efsvp_enqueue_audio_block_assets');
