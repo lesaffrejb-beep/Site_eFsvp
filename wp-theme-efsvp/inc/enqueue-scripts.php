@@ -40,11 +40,43 @@ function efsvp_enqueue_assets() {
         EFSVP_VERSION
     );
 
+    // Main styles from maquette
+    wp_enqueue_style(
+        'efsvp-styles',
+        EFSVP_THEME_URI . '/assets/css/styles.css',
+        ['efsvp-design-system'],
+        EFSVP_VERSION
+    );
+
+    // Premium enhancements
+    wp_enqueue_style(
+        'efsvp-premium-enhancements',
+        EFSVP_THEME_URI . '/assets/css/premium-enhancements.css',
+        ['efsvp-styles'],
+        EFSVP_VERSION
+    );
+
+    // Premium unified
+    wp_enqueue_style(
+        'efsvp-premium-unified',
+        EFSVP_THEME_URI . '/assets/css/premium-unified.css',
+        ['efsvp-premium-enhancements'],
+        EFSVP_VERSION
+    );
+
+    // Cookie banner
+    wp_enqueue_style(
+        'efsvp-cookie-banner',
+        EFSVP_THEME_URI . '/assets/css/cookie-banner.css',
+        ['efsvp-premium-unified'],
+        EFSVP_VERSION
+    );
+
     // Main stylesheet
     wp_enqueue_style(
         'efsvp-main',
         get_stylesheet_uri(),
-        ['efsvp-design-system'],
+        ['efsvp-cookie-banner'],
         EFSVP_VERSION
     );
 
@@ -52,7 +84,7 @@ function efsvp_enqueue_assets() {
     wp_enqueue_style(
         'efsvp-header',
         EFSVP_THEME_URI . '/assets/css/components/header.css',
-        ['efsvp-design-system'],
+        ['efsvp-main'],
         EFSVP_VERSION
     );
 
@@ -60,18 +92,29 @@ function efsvp_enqueue_assets() {
     wp_enqueue_style(
         'efsvp-buttons',
         EFSVP_THEME_URI . '/assets/css/components/buttons.css',
-        ['efsvp-design-system'],
+        ['efsvp-main'],
         EFSVP_VERSION
     );
 
-    // Main JavaScript
+    // Main JavaScript (avec type module pour supporter les imports)
     wp_enqueue_script(
         'efsvp-main',
         EFSVP_THEME_URI . '/assets/js/main.js',
         [],
         EFSVP_VERSION,
-        true // In footer
+        [
+            'in_footer' => true,
+            'strategy' => 'defer'
+        ]
     );
+
+    // Ajouter l'attribut type="module" au script principal
+    add_filter('script_loader_tag', function($tag, $handle) {
+        if ('efsvp-main' === $handle) {
+            $tag = str_replace(' src', ' type="module" src', $tag);
+        }
+        return $tag;
+    }, 10, 2);
 
     // Localize script for AJAX
     wp_localize_script('efsvp-main', 'efsvpData', [

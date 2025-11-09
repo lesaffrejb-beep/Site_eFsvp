@@ -10,42 +10,54 @@
 <?php wp_body_open(); ?>
 
 <!-- Skip to main content (Accessibility) -->
-<a href="#main" class="skip-link"><?php esc_html_e('Aller au contenu principal', 'efsvp'); ?></a>
+<a href="#main" class="skip-link sr-only"><?php esc_html_e('Aller au contenu principal', 'efsvp'); ?></a>
 
-<!-- Site Header -->
-<header class="site-header" role="banner">
-    <div class="site-header__container">
-        <div class="site-branding">
-            <?php if (has_custom_logo()): ?>
-                <?php the_custom_logo(); ?>
-            <?php else: ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="site-title">
-                    <?php bloginfo('name'); ?>
-                </a>
-            <?php endif; ?>
-        </div>
+<!-- Navigation principale -->
+<nav class="nav" id="nav" aria-label="<?php esc_attr_e('Navigation principale', 'efsvp'); ?>">
+    <div class="nav__container">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="nav__logo" aria-label="<?php esc_attr_e('Retour à l\'accueil', 'efsvp'); ?>">
+            <span class="nav__logo-text">
+                <?php bloginfo('name'); ?>
+            </span>
+        </a>
 
-        <nav class="site-navigation" role="navigation" aria-label="<?php esc_attr_e('Navigation principale', 'efsvp'); ?>">
+        <div class="nav__menu" id="nav-menu">
             <?php
             wp_nav_menu([
                 'theme_location' => 'primary',
                 'container'      => false,
-                'menu_class'     => 'nav-menu',
-                'fallback_cb'    => false
+                'menu_class'     => 'nav__list',
+                'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'walker'         => new class extends Walker_Nav_Menu {
+                    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+                        $output .= '<li class="nav__item">';
+                        $output .= '<a href="' . esc_url($item->url) . '" class="nav__link">' . esc_html($item->title) . '</a>';
+                    }
+                    function end_el(&$output, $item, $depth = 0, $args = null) {
+                        $output .= '</li>';
+                    }
+                },
+                'fallback_cb'    => function() {
+                    echo '<ul class="nav__list">';
+                    echo '<li class="nav__item"><a href="#creations" class="nav__link">Créations</a></li>';
+                    echo '<li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>';
+                    echo '<li class="nav__item"><a href="#process" class="nav__link">Process</a></li>';
+                    echo '<li class="nav__item"><a href="#faq" class="nav__link">FAQ</a></li>';
+                    echo '</ul>';
+                }
             ]);
             ?>
-        </nav>
-
-        <div class="site-header__cta">
-            <a href="#contact" class="button"><?php esc_html_e('Démarrer votre projet', 'efsvp'); ?></a>
         </div>
 
-        <button class="menu-toggle" aria-label="<?php esc_attr_e('Menu', 'efsvp'); ?>" aria-expanded="false">
+        <a href="#contact" class="nav__cta btn btn--primary-small"><?php esc_html_e('Démarrer votre projet', 'efsvp'); ?></a>
+
+        <!-- Mobile Toggle -->
+        <button class="nav__toggle" id="nav-toggle" aria-label="<?php esc_attr_e('Menu', 'efsvp'); ?>" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </div>
-</header>
+</nav>
 
 <main id="main" class="site-main" role="main">
