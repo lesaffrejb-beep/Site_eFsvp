@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "efsvp/services",
+  "title": "Services Grid",
+  "category": "efsvp-blocks",
+  "icon": "grid-view",
+  "description": "Grille de services/prestations avec icônes",
+  "keywords": ["services", "grid", "prestations", "efsvp"],
+  "version": "1.0.0",
+  "textdomain": "efsvp",
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true
+  },
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "default": "Nos créations"
+    },
+    "sectionSubtitle": {
+      "type": "string",
+      "default": "Des prestations sur-mesure"
+    },
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Écriture",
+          "description": "Récits sur-mesure pour vos événements clés",
+          "icon": "✍️"
+        },
+        {
+          "title": "Composition",
+          "description": "Musique originale adaptée à votre identité",
+          "icon": "🎵"
+        },
+        {
+          "title": "Performance Live",
+          "description": "Spectacles immersifs et captivants",
+          "icon": "🎭"
+        }
+      ]
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}
