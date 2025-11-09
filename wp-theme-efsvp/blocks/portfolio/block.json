@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "efsvp/portfolio",
+  "title": "Portfolio Grid",
+  "category": "efsvp-blocks",
+  "icon": "format-gallery",
+  "description": "Galerie de projets portfolio avec catégories",
+  "keywords": ["portfolio", "gallery", "projects", "efsvp"],
+  "version": "1.0.0",
+  "textdomain": "efsvp",
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true
+  },
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "default": "Portfolio"
+    },
+    "sectionSubtitle": {
+      "type": "string",
+      "default": "Nos projets récents"
+    },
+    "projects": {
+      "type": "array",
+      "default": [
+        {
+          "title": "État de nature",
+          "category": "Spectacle",
+          "image": null,
+          "description": "Spectacle immersif en pleine forêt"
+        },
+        {
+          "title": "SIVAL",
+          "category": "Narration",
+          "image": null,
+          "description": "L'innovation agricole racontée"
+        },
+        {
+          "title": "Atelier Lacour",
+          "category": "Performance",
+          "image": null,
+          "description": "Métaphore de la forêt"
+        }
+      ]
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}
