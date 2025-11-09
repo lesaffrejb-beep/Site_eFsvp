@@ -24,11 +24,19 @@ function efsvp_enqueue_assets() {
         null
     );
 
+    // Global design tokens (shared with front & editor)
+    wp_enqueue_style(
+        'efsvp-design-tokens',
+        EFSVP_THEME_URI . '/assets/css/design-tokens.css',
+        [],
+        EFSVP_VERSION
+    );
+
     // Design System CSS
     wp_enqueue_style(
         'efsvp-design-system',
         EFSVP_THEME_URI . '/assets/css/design-system.css',
-        [],
+        ['efsvp-design-tokens'],
         EFSVP_VERSION
     );
 
