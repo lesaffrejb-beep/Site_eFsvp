@@ -27,7 +27,7 @@ require_once EFSVP_THEME_DIR . '/inc/customizer.php';
  * Register custom blocks
  */
 function efsvp_register_blocks() {
-    $blocks = ['hero', 'services', 'portfolio', 'testimonials', 'cta'];
+    $blocks = ['hero', 'services', 'portfolio', 'testimonials', 'cta', 'audio-bento', 'flagship-cases'];
 
     foreach ($blocks as $block) {
         $block_path = EFSVP_THEME_DIR . "/blocks/{$block}";

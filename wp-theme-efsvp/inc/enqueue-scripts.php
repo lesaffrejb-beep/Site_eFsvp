@@ -108,3 +108,26 @@ function efsvp_resource_hints($urls, $relation_type) {
     return $urls;
 }
 add_filter('wp_resource_hints', 'efsvp_resource_hints', 10, 2);
+
+/**
+ * Enqueue WaveSurfer.js for audio blocks only when needed.
+ */
+function efsvp_enqueue_audio_block_assets() {
+    $handle     = 'wavesurfer';
+    $script_src = 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js';
+    $version    = '7.7.11';
+
+    if (!wp_script_is($handle, 'registered')) {
+        wp_register_script($handle, $script_src, [], $version, true);
+    }
+
+    if (is_admin()) {
+        wp_enqueue_script($handle);
+        return;
+    }
+
+    if (function_exists('has_block') && has_block('efsvp/audio-bento')) {
+        wp_enqueue_script($handle);
+    }
+}
+add_action('enqueue_block_assets', 'efsvp_enqueue_audio_block_assets');
