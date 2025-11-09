@@ -24,11 +24,19 @@ function efsvp_enqueue_assets() {
         null
     );
 
+    // Global design tokens (shared with front & editor)
+    wp_enqueue_style(
+        'efsvp-design-tokens',
+        EFSVP_THEME_URI . '/assets/css/design-tokens.css',
+        [],
+        EFSVP_VERSION
+    );
+
     // Design System CSS
     wp_enqueue_style(
         'efsvp-design-system',
         EFSVP_THEME_URI . '/assets/css/design-system.css',
-        [],
+        ['efsvp-design-tokens'],
         EFSVP_VERSION
     );
 
@@ -42,8 +50,16 @@ function efsvp_enqueue_assets() {
 
     // Component styles
     wp_enqueue_style(
-        'efsvp-components',
+        'efsvp-header',
         EFSVP_THEME_URI . '/assets/css/components/header.css',
+        ['efsvp-design-system'],
+        EFSVP_VERSION
+    );
+
+    // Button styles
+    wp_enqueue_style(
+        'efsvp-buttons',
+        EFSVP_THEME_URI . '/assets/css/components/buttons.css',
         ['efsvp-design-system'],
         EFSVP_VERSION
     );
