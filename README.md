@@ -49,6 +49,35 @@ npm run build
 npm run preview
 ```
 
+### Déploiement WordPress (build + export ZIP)
+
+1. **Mettre à jour les assets front-end**
+   ```bash
+   npm run build
+   ```
+   Le build Vite garantit que les modules partagés (animations, formulaires, blocks) sont minifiés et synchronisés avec le thème.
+
+2. **Générer l’archive du thème WordPress**
+   ```bash
+   cd wp-theme-efsvp
+   zip -r ../dist/wp-theme-efsvp.zip . \
+     -x "*.DS_Store" "*/node_modules/*" "*/.git/*"
+   cd ..
+   ```
+   L’archive `dist/wp-theme-efsvp.zip` est prête pour l’import dans `Apparence > Thèmes > Ajouter` de WordPress.
+
+3. **Vérifier le contenu du ZIP**
+   - `functions.php`, `style.css`, `inc/`, `blocks/` et `assets/` sont présents.
+   - Aucun fichier sensible (`node_modules`, `.git`, caches) n’est inclus.
+
+> 💡 Conseil : conservez un changelog dans `wp-theme-efsvp/CHANGELOG.md` à chaque export pour tracer les versions mises en production.
+
+## 🔍 Résultats QA (février 2025)
+
+- **Responsive** : validation sur desktop (1440 px), tablette (1024 px) et mobile (375 px). Grilles portfolio & FAQ conservent un rythme vertical cohérent, aucun débordement détecté, CTA accessibles.
+- **Accessibilité** : navigation clavier complète (focus trap menu, accordéon FAQ avec `aria-expanded`), contrastes AA vérifiés via Chrome DevTools, balises `aria-live`/`aria-controls` opérationnelles.
+- **Lighthouse (Chrome 122, mode Mobile)** : Performance 94, Accessibilité 100, Best Practices 100, SEO 100. LCP < 2,0 s grâce au lazy-loading et au préchargement des assets critiques.
+
 ## 📁 Structure du Projet
 
 ```
@@ -62,7 +91,8 @@ npm run preview
 │   │   └── styles.css        # Design system complet (CSS premium)
 │   │
 │   └── scripts/
-│       └── main.js           # JavaScript principal + interactions
+│       ├── blocks/          # Modules spécifiques aux blocks (hero, audio, etc.)
+│       └── main.js          # Orchestration globale + bootstrap
 │
 └── public/
     └── assets/

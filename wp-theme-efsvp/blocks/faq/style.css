@@ -1,0 +1,105 @@
+.efsvp-faq {
+  padding-block: var(--wp--custom--spacing--section, 6rem);
+}
+
+.efsvp-faq__header {
+  max-width: 48rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+}
+
+.efsvp-faq__title {
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+  font-family: var(--wp--preset--font-family--playfair-display, 'Playfair Display', serif);
+  line-height: 1.2;
+}
+
+.efsvp-faq__subtitle {
+  color: var(--wp--preset--color--ink-40, #5b6875);
+  font-size: 1rem;
+}
+
+.efsvp-faq__grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+.faq__item {
+  border: 1px solid rgba(15, 21, 29, 0.1);
+  border-radius: 16px;
+  background: var(--wp--preset--color--parchment, #f6f3ef);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq__item.active {
+  border-color: rgba(184, 68, 30, 0.3);
+  box-shadow: 0 18px 40px -24px rgba(15, 21, 29, 0.35);
+}
+
+.faq__question {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgba(184, 68, 30, 0.08);
+  color: var(--wp--preset--color--primary, #b8441e);
+  transition: transform 0.3s ease;
+}
+
+.faq__item.active .faq__icon {
+  transform: rotate(45deg);
+}
+
+.faq__answer {
+  padding: 0 2rem 2rem;
+  color: var(--wp--preset--color--ink-60, #3c4550);
+  font-size: 1rem;
+  line-height: 1.7;
+  display: none;
+}
+
+.faq__item.active .faq__answer {
+  display: block;
+}
+
+.efsvp-faq__empty {
+  text-align: center;
+  font-style: italic;
+  color: var(--wp--preset--color--ink-40, #5b6875);
+}
+
+@media (max-width: 768px) {
+  .efsvp-faq {
+    padding-block: 3.5rem;
+  }
+
+  .faq__question {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .faq__answer {
+    padding: 0 1.5rem 1.5rem;
+  }
+}

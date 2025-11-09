@@ -9,8 +9,6 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SmoothScroll } from './modules/smoothScroll.js';
-import { HeroManager } from './modules/hero.js';
-import { AudioPlayerManager } from './modules/audioPlayer.js';
 import { CursorManager } from './modules/cursor.js';
 import { MagneticButtons } from './modules/magnetic.js';
 import { ErrorHandler } from './modules/errorHandler.js';
@@ -18,12 +16,12 @@ import { LazyLoadManager } from './modules/lazyLoad.js';
 import { FormValidator } from './modules/formValidator.js';
 import { AnimationsManager } from './modules/animations.js';
 import { ProgressBar } from './modules/progressBar.js';
-import { CopyEmail } from './modules/copyEmail.js';
-import { KnowledgeVoicePlayer } from './modules/knowledgeVoice.js';
 import { ProcessReveal } from './modules/processReveal.js';
 import { CookieConsent } from './modules/cookieConsent.js';
-import Swiper from 'swiper';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { initHeroBlock } from './blocks/hero.js';
+import { initAudioBlock } from './blocks/audio.js';
+import { initPortfolioBlock } from './blocks/portfolio.js';
+import { initTestimonialsBlock } from './blocks/testimonials.js';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -175,27 +173,23 @@ class App {
   }
 
   initSections() {
-    // Hero
-    this.modules.hero = new HeroManager();
+    const heroContext = initHeroBlock({ modules: this.modules });
+    this.modules = heroContext.modules;
 
-    // Copy Email functionality
-    this.modules.copyEmail = new CopyEmail();
-
-    // Knowledge voice excerpt
-    this.modules.knowledgeVoice = new KnowledgeVoicePlayer();
-    this.modules.knowledgeVoice.init();
-
-    // Audio Players (WaveSurfer)
-    this.modules.audioPlayers = new AudioPlayerManager();
+    const audioContext = initAudioBlock(heroContext);
+    this.modules = audioContext.modules;
 
     // Process Reveal Animation
     this.modules.processReveal = new ProcessReveal();
 
     // Portfolio filters
-    this.initPortfolioFilters();
+    initPortfolioBlock();
 
     // Testimonials carousel
-    this.initTestimonials();
+    const testimonialsInstance = initTestimonialsBlock();
+    if (testimonialsInstance) {
+      this.modules.testimonials = testimonialsInstance;
+    }
 
     // FAQ Accordion
     this.initFAQ();
@@ -430,142 +424,6 @@ class App {
             },
           }
         );
-      });
-    }
-  }
-
-  // ========== PORTFOLIO FILTERS ==========
-  initPortfolioFilters() {
-    // Legacy portfolio filters (old system)
-    const legacyFilters = document.querySelectorAll('.portfolio__filter');
-    const cards = document.querySelectorAll('.portfolio-card');
-
-    if (legacyFilters.length > 0) {
-      legacyFilters.forEach((filter) => {
-        filter.addEventListener('click', () => {
-          const category = filter.getAttribute('data-filter');
-
-          // Update active
-          legacyFilters.forEach((f) => f.classList.remove('portfolio__filter--active'));
-          filter.classList.add('portfolio__filter--active');
-
-          // Filter cards
-          cards.forEach((card) => {
-            const cardCategory = card.getAttribute('data-category');
-
-            if (category === 'all' || cardCategory === category) {
-              gsap.to(card, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.3,
-                ease: 'power2.out',
-                onStart: () => {
-                  card.style.display = 'block';
-                },
-              });
-            } else {
-              gsap.to(card, {
-                opacity: 0,
-                scale: 0.95,
-                duration: 0.3,
-                ease: 'power2.in',
-                onComplete: () => {
-                  card.style.display = 'none';
-                },
-              });
-            }
-          });
-        });
-      });
-    }
-
-    // New pills system with double filtering (client + type)
-    const filterButtons = document.querySelectorAll('.filter');
-
-    if (filterButtons.length > 0) {
-      const state = { client: 'all', type: 'all' };
-
-      const applyFilters = () => {
-        cards.forEach((card) => {
-          const cardClient = card.getAttribute('data-client');
-          const cardType = card.getAttribute('data-type');
-
-          const matchClient = (state.client === 'all') || (cardClient === state.client);
-          const matchType = (state.type === 'all') || (cardType === state.type);
-          const visible = matchClient && matchType;
-
-          if (visible) {
-            gsap.to(card, {
-              opacity: 1,
-              scale: 1,
-              duration: 0.3,
-              ease: 'power2.out',
-              onStart: () => {
-                card.style.display = 'block';
-                card.hidden = false;
-              },
-            });
-          } else {
-            gsap.to(card, {
-              opacity: 0,
-              scale: 0.95,
-              duration: 0.3,
-              ease: 'power2.in',
-              onComplete: () => {
-                card.style.display = 'none';
-                card.hidden = true;
-              },
-            });
-          }
-        });
-      };
-
-      filterButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const group = btn.getAttribute('data-filter-group');
-          const value = btn.getAttribute('data-filter-value');
-
-          // Reset visual state for this group
-          document.querySelectorAll(`.filter[data-filter-group="${group}"]`)
-            .forEach((b) => {
-              b.classList.remove('is-active');
-              b.setAttribute('aria-pressed', 'false');
-            });
-
-          // Activate current button
-          btn.classList.add('is-active');
-          btn.setAttribute('aria-pressed', 'true');
-
-          // Update state and apply filters
-          state[group] = value;
-          applyFilters();
-        });
-      });
-
-      // Initialize filters
-      applyFilters();
-    }
-  }
-
-  // ========== TESTIMONIALS ==========
-  initTestimonials() {
-    const carousel = document.querySelector('.testimonials__carousel');
-
-    if (carousel) {
-      new Swiper('.testimonials__carousel', {
-        modules: [Pagination, Autoplay],
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-          delay: 7000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        speed: 600,
       });
     }
   }

@@ -17,6 +17,8 @@ Cette checklist couvre tous les aspects qualité du site avant la mise en ligne 
 
 **Durée estimée :** 1-2 heures de tests approfondis
 
+> Dernière validation (février 2025) : responsive OK, accessibilité AA validée, audit Lighthouse mobile 94/100/100/100.
+
 ---
 
 ## 📝 1. CONTENU & WORDING

@@ -24,22 +24,11 @@
     },
     "testimonials": {
       "type": "array",
-      "default": [
-        {
-          "quote": "Un travail remarquable qui a su capturer l'essence de notre entreprise.",
-          "author": "Jean Dupont",
-          "role": "Directeur Général",
-          "company": "Entreprise ABC",
-          "image": null
-        },
-        {
-          "quote": "Une expérience unique qui a marqué nos équipes et nos partenaires.",
-          "author": "Marie Martin",
-          "role": "Responsable Communication",
-          "company": "Organisation XYZ",
-          "image": null
-        }
-      ]
+      "default": []
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 6
     },
     "darkBackground": {
       "type": "boolean",

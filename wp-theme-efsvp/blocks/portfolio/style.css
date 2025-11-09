@@ -115,6 +115,21 @@
   color: var(--text);
 }
 
+.efsvp-portfolio-card__tagline {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: var(--space-2);
+}
+
+.efsvp-portfolio-card__meta {
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-3);
+}
+
 .efsvp-portfolio-card__description {
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);

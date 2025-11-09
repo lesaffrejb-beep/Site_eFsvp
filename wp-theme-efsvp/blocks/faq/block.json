@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "efsvp/portfolio",
-  "title": "Portfolio Grid",
+  "name": "efsvp/faq",
+  "title": "FAQ",
   "category": "efsvp-blocks",
-  "icon": "format-gallery",
-  "description": "Galerie de projets portfolio avec catégories",
-  "keywords": ["portfolio", "gallery", "projects", "efsvp"],
+  "icon": "editor-help",
+  "description": "Accordéon FAQ alimenté par le CPT dédié",
+  "keywords": ["faq", "accordion", "questions", "efsvp"],
   "version": "1.0.0",
   "textdomain": "efsvp",
   "supports": {
@@ -16,23 +16,15 @@
   "attributes": {
     "sectionTitle": {
       "type": "string",
-      "default": "Portfolio"
+      "default": "Questions fréquentes"
     },
     "sectionSubtitle": {
       "type": "string",
-      "default": "Nos projets récents"
-    },
-    "projects": {
-      "type": "array",
-      "default": []
+      "default": "Tout ce qu'il faut savoir avant de collaborer"
     },
     "postsPerPage": {
       "type": "number",
       "default": -1
-    },
-    "columns": {
-      "type": "number",
-      "default": 3
     }
   },
   "editorStyle": "file:./editor.css",

@@ -13,7 +13,43 @@ if (!defined('ABSPATH')) {
 
 $section_title = $attributes['sectionTitle'] ?? '';
 $section_subtitle = $attributes['sectionSubtitle'] ?? '';
-$testimonials = $attributes['testimonials'] ?? [];
+$posts_per_page = $attributes['postsPerPage'] ?? 6;
+$testimonials = [];
+$has_acf = function_exists('get_field');
+
+$query = new WP_Query([
+    'post_type'      => 'efsvp_testimonial',
+    'posts_per_page' => $posts_per_page,
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC',
+]);
+
+if ($query->have_posts()) {
+    while ($query->have_posts()) {
+        $query->the_post();
+
+        $image_id = get_post_thumbnail_id();
+        $image = null;
+
+        if ($image_id) {
+            $image = [
+                'url' => wp_get_attachment_image_url($image_id, 'medium'),
+                'alt' => get_post_meta($image_id, '_wp_attachment_image_alt', true) ?: get_the_title(),
+            ];
+        }
+
+        $testimonials[] = [
+            'quote'   => ($has_acf ? get_field('quote') : '') ?: wp_strip_all_tags(get_the_content()),
+            'author'  => get_the_title(),
+            'role'    => $has_acf ? get_field('role') : '',
+            'company' => $has_acf ? get_field('company') : '',
+            'image'   => $image,
+        ];
+    }
+    wp_reset_postdata();
+} else {
+    $testimonials = $attributes['testimonials'] ?? [];
+}
 $dark_background = $attributes['darkBackground'] ?? true;
 
 $classes = ['efsvp-testimonials'];
