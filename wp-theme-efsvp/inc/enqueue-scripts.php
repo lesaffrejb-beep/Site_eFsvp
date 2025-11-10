@@ -51,7 +51,7 @@ function efsvp_enqueue_assets() {
     // Premium enhancements
     wp_enqueue_style(
         'efsvp-premium-enhancements',
-        EFSVP_THEME_URI . '/assets/css/premium-enhancements.css',
+        EFSVP_THEME_URI . '/assets/css/premium/premium-enhancements.css',
         ['efsvp-styles'],
         EFSVP_VERSION
     );
@@ -59,7 +59,7 @@ function efsvp_enqueue_assets() {
     // Premium unified
     wp_enqueue_style(
         'efsvp-premium-unified',
-        EFSVP_THEME_URI . '/assets/css/premium-unified.css',
+        EFSVP_THEME_URI . '/assets/css/premium/premium-unified.css',
         ['efsvp-premium-enhancements'],
         EFSVP_VERSION
     );
@@ -67,7 +67,7 @@ function efsvp_enqueue_assets() {
     // Cookie banner
     wp_enqueue_style(
         'efsvp-cookie-banner',
-        EFSVP_THEME_URI . '/assets/css/cookie-banner.css',
+        EFSVP_THEME_URI . '/assets/css/premium/cookie-banner.css',
         ['efsvp-premium-unified'],
         EFSVP_VERSION
     );
