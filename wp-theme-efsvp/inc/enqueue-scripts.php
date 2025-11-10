@@ -198,3 +198,32 @@ function efsvp_enqueue_audio_block_assets() {
     }
 }
 add_action('enqueue_block_assets', 'efsvp_enqueue_audio_block_assets');
+
+/**
+ * Enqueue Swiper JS for carousel/slider blocks when needed.
+ */
+function efsvp_enqueue_swiper_assets() {
+    // Swiper CSS
+    wp_register_style(
+        'swiper',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+        [],
+        '11.0.0'
+    );
+
+    // Swiper JS
+    wp_register_script(
+        'swiper',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+        [],
+        '11.0.0',
+        true
+    );
+
+    // Enqueue if creations block is present
+    if (function_exists('has_block') && (has_block('efsvp/creations') || has_block('efsvp/audio-bento'))) {
+        wp_enqueue_style('swiper');
+        wp_enqueue_script('swiper');
+    }
+}
+add_action('wp_enqueue_scripts', 'efsvp_enqueue_swiper_assets');

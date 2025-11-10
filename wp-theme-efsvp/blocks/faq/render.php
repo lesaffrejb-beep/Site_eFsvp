@@ -1,6 +1,7 @@
 <?php
 /**
  * FAQ Block Template
+ * Reproduit exactement la structure HTML de la maquette (index.html lignes 1383-1621)
  *
  * @param array    $attributes Block attributes
  * @param string   $content    Block content
@@ -11,81 +12,61 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$section_title = $attributes['sectionTitle'] ?? '';
-$section_subtitle = $attributes['sectionSubtitle'] ?? '';
-$posts_per_page = $attributes['postsPerPage'] ?? -1;
-$has_acf = function_exists('get_field');
+// Récupération des attributs
+$section_title = $attributes['sectionTitle'] ?? 'Vos questions, nos réponses';
+$faq_items = $attributes['faqItems'] ?? [];
 
+// Wrapper attributes
 $wrapper_attributes = get_block_wrapper_attributes([
-    'class' => 'efsvp-faq'
+    'class' => 'faq',
+    'id' => 'faq',
+    'aria-labelledby' => 'faq-title'
 ]);
-
-$query = new WP_Query([
-    'post_type'      => 'efsvp_faq',
-    'posts_per_page' => $posts_per_page,
-    'orderby'        => 'menu_order',
-    'order'          => 'ASC',
-]);
-
-$faqs = [];
-
-if ($query->have_posts()) {
-    while ($query->have_posts()) {
-        $query->the_post();
-        $faqs[] = [
-            'id'       => get_the_ID(),
-            'question' => get_the_title(),
-            'answer'   => ($has_acf ? get_field('answer') : '') ?: get_the_content(),
-            'category' => $has_acf ? get_field('faq_category') : '',
-        ];
-    }
-    wp_reset_postdata();
-}
 ?>
 
 <section <?php echo $wrapper_attributes; ?>>
     <div class="container">
-        <?php if ($section_title || $section_subtitle): ?>
-            <header class="efsvp-faq__header">
-                <?php if ($section_title): ?>
-                    <h2 class="efsvp-faq__title"><?php echo wp_kses_post($section_title); ?></h2>
-                <?php endif; ?>
+        <header class="section__header">
+            <h2 class="section__title" id="faq-title"><?php echo esc_html($section_title); ?></h2>
+        </header>
 
-                <?php if ($section_subtitle): ?>
-                    <p class="efsvp-faq__subtitle"><?php echo wp_kses_post($section_subtitle); ?></p>
-                <?php endif; ?>
-            </header>
-        <?php endif; ?>
+        <!-- FAQ Grid -->
+        <div class="faq__grid">
+            <?php foreach ($faq_items as $index => $item): ?>
+                <?php
+                $answer_id = 'faq-answer-' . ($index + 1);
+                $question = $item['question'] ?? '';
+                $answer = $item['answer'] ?? '';
+                ?>
 
-        <?php if (!empty($faqs)): ?>
-            <div class="efsvp-faq__grid">
-                <?php foreach ($faqs as $index => $faq): ?>
-                    <?php $category_slug = !empty($faq['category']) ? sanitize_title($faq['category']) : 'general'; ?>
-                    <article class="faq__item" data-category="<?php echo esc_attr($category_slug); ?>">
-                        <button
-                            class="faq__question"
-                            type="button"
-                            aria-expanded="false"
-                            aria-controls="faq-answer-<?php echo esc_attr($faq['id']); ?>"
+                <!-- Question <?php echo ($index + 1); ?> -->
+                <article class="faq__item">
+                    <button
+                        class="faq__question"
+                        aria-expanded="false"
+                        aria-controls="<?php echo esc_attr($answer_id); ?>"
+                    >
+                        <span class="faq__question-text"><?php echo esc_html($question); ?></span>
+                        <svg
+                            class="faq__icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
                         >
-                            <span class="faq__question-text"><?php echo esc_html($faq['question']); ?></span>
-                            <span class="faq__icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 5v14M5 12h14" />
-                                </svg>
-                            </span>
-                        </button>
-
-                        <div class="faq__answer" id="faq-answer-<?php echo esc_attr($faq['id']); ?>">
-                            <?php echo wp_kses_post(wpautop($faq['answer'])); ?>
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer-wrapper">
+                        <div class="faq__answer" id="<?php echo esc_attr($answer_id); ?>">
+                            <p><?php echo wp_kses_post($answer); ?></p>
                         </div>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        <?php else: ?>
-            <p class="efsvp-faq__empty">
-                <?php esc_html_e('Aucune question n’a encore été publiée.', 'efsvp'); ?>
-            </p>
-        <?php endif; ?>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
