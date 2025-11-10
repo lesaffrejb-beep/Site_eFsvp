@@ -56,6 +56,30 @@
   color: var(--text-on-dark);
 }
 
+/* Title line segments from maquette */
+.hero__title-line,
+.efsvp-hero__title-line {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.hero__title-line--primary,
+.efsvp-hero__title-line--primary {
+  text-transform: none;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.hero__title-line--secondary,
+.efsvp-hero__title-line--secondary {
+  font-style: italic;
+  color: rgba(255, 242, 230, 0.9);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-shadow: none;
+  margin-top: var(--space-3);
+}
+
 .efsvp-hero__subtitle {
   font-family: var(--font-display);
   font-size: var(--text-3xl);

@@ -11,8 +11,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$title = $attributes['title'] ?? '';
-$subtitle = $attributes['subtitle'] ?? '';
+$title_line1 = $attributes['titleLine1'] ?? '';
+$title_line2 = $attributes['titleLine2'] ?? '';
 $description = $attributes['description'] ?? '';
 $bg_image = $attributes['backgroundImage'] ?? null;
 $bg_video = $attributes['backgroundVideo'] ?? null;
@@ -111,20 +111,23 @@ $wrapper_attributes = get_block_wrapper_attributes([
     </div>
 
     <div class="efsvp-hero__content">
-        <?php if ($title): ?>
-            <h1 class="efsvp-hero__title">
-                <?php echo wp_kses_post($title); ?>
+        <?php if ($title_line1 || $title_line2): ?>
+            <h1 class="efsvp-hero__title hero__title" data-scroll>
+                <?php if ($title_line1): ?>
+                    <span class="efsvp-hero__title-line hero__title-line hero__title-line--primary">
+                        <?php echo wp_kses_post($title_line1); ?>
+                    </span>
+                <?php endif; ?>
+                <?php if ($title_line2): ?>
+                    <span class="efsvp-hero__title-line hero__title-line hero__title-line--secondary">
+                        <?php echo wp_kses_post($title_line2); ?>
+                    </span>
+                <?php endif; ?>
             </h1>
         <?php endif; ?>
 
-        <?php if ($subtitle): ?>
-            <p class="efsvp-hero__subtitle">
-                <?php echo wp_kses_post($subtitle); ?>
-            </p>
-        <?php endif; ?>
-
         <?php if ($description): ?>
-            <p class="efsvp-hero__description">
+            <p class="efsvp-hero__subtitle hero__subtitle" data-scroll>
                 <?php echo wp_kses_post($description); ?>
             </p>
         <?php endif; ?>

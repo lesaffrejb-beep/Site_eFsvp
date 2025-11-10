@@ -2,11 +2,11 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "efsvp/contact",
-  "title": "Contact Section",
+  "title": "Contact avec Formulaire",
   "category": "efsvp-blocks",
   "icon": "email",
-  "description": "Section contact avec formulaire et citation",
-  "keywords": ["contact", "form", "formulaire", "efsvp"],
+  "description": "Section contact avec formulaire complet, citation et informations de contact alternatives",
+  "keywords": ["contact", "form", "formulaire", "email", "efsvp"],
   "version": "1.0.0",
   "textdomain": "efsvp",
   "supports": {
@@ -30,16 +30,25 @@
       "type": "string",
       "default": "Toutes les bonnes histoires méritent d'être racontées."
     },
-    "formShortcode": {
-      "type": "string",
-      "default": ""
-    },
     "backgroundColor": {
       "type": "string",
       "default": "#f8f9fa"
+    },
+    "contactEmail": {
+      "type": "string",
+      "default": "contact@efsvp.fr"
+    },
+    "altContactTitle": {
+      "type": "string",
+      "default": "Ou contactez-nous directement"
+    },
+    "altContactLocation": {
+      "type": "string",
+      "default": "Basé à Angers · Partout en Francophonie"
     }
   },
   "editorStyle": "file:./editor.css",
   "style": "file:./style.css",
+  "viewScript": "file:./view.js",
   "render": "file:./render.php"
 }
