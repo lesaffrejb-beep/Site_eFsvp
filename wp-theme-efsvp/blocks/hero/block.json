@@ -18,11 +18,11 @@
     }
   },
   "attributes": {
-    "title": {
+    "titleLine1": {
       "type": "string",
       "default": "Vous avez déjà écrit l'histoire."
     },
-    "subtitle": {
+    "titleLine2": {
       "type": "string",
       "default": "Nous la mettons en scène avec mesure."
     },

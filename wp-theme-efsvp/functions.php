@@ -24,6 +24,7 @@ require_once EFSVP_THEME_DIR . '/inc/gutenberg-config.php';
 require_once EFSVP_THEME_DIR . '/inc/customizer.php';
 require_once EFSVP_THEME_DIR . '/inc/custom-post-types.php';
 require_once EFSVP_THEME_DIR . '/inc/block-patterns.php';
+require_once EFSVP_THEME_DIR . '/inc/ajax-handlers.php';
 
 /**
  * Register custom blocks
