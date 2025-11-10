@@ -29,14 +29,20 @@ require_once EFSVP_THEME_DIR . '/inc/block-patterns.php';
  * Register custom blocks
  */
 function efsvp_register_blocks() {
-    $blocks = ['hero', 'services', 'portfolio', 'testimonials', 'faq', 'cta'];
     $blocks = [
         'hero',
+        'audio-bento',
+        'creations',
+        'flagship-cases',
         'services',
         'portfolio',
         'portfolio-grid',
+        'process',
         'process-steps',
         'testimonials',
+        'stats',
+        'faq',
+        'contact',
         'cta'
     ];
 
