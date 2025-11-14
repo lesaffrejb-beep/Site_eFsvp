@@ -32,6 +32,8 @@ const toggleCardVisibility = (card, visible) => {
 };
 
 const applyFilterState = (cards, state) => {
+  let visibleCount = 0;
+
   cards.forEach((card) => {
     const cardClient = card.getAttribute('data-client');
     const cardType = card.getAttribute('data-type');
@@ -43,7 +45,27 @@ const applyFilterState = (cards, state) => {
 
     const shouldDisplay = matchesClient && matchesType && matchesCategory;
     toggleCardVisibility(card, shouldDisplay);
+
+    if (shouldDisplay) {
+      visibleCount++;
+    }
   });
+
+  // Show/hide empty state
+  const emptyState = document.getElementById('portfolio-empty');
+  if (emptyState) {
+    if (visibleCount === 0) {
+      emptyState.style.display = 'block';
+      // Animate in
+      gsap.fromTo(
+        emptyState,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+      );
+    } else {
+      emptyState.style.display = 'none';
+    }
+  }
 };
 
 const initLegacyFilters = (root, cards) => {
