@@ -22,6 +22,7 @@ import { initHeroBlock } from './blocks/hero.js';
 import { initAudioBlock } from './blocks/audio.js';
 import { initPortfolioBlock } from './blocks/portfolio.js';
 import { initTestimonialsBlock } from './blocks/testimonials.js';
+import { initPortfolioRenderer } from './modules/portfolioRenderer.js';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -181,6 +182,9 @@ class App {
 
     // Process Reveal Animation
     this.modules.processReveal = new ProcessReveal();
+
+    // Portfolio renderer (CMS-ready) - must run BEFORE filters
+    initPortfolioRenderer();
 
     // Portfolio filters
     initPortfolioBlock();
