@@ -49,7 +49,7 @@
             ?>
         </div>
 
-        <a href="#contact" class="nav__cta btn btn--primary-small"><?php esc_html_e('Démarrer votre projet', 'efsvp'); ?></a>
+        <a href="#contact" class="nav__cta btn btn--primary-small"><?php esc_html_e('Partagez votre histoire', 'efsvp'); ?></a>
 
         <!-- Mobile Toggle -->
         <button class="nav__toggle" id="nav-toggle" aria-label="<?php esc_attr_e('Menu', 'efsvp'); ?>" aria-expanded="false">

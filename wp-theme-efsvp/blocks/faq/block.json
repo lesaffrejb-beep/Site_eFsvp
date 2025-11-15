@@ -16,7 +16,7 @@
   "attributes": {
     "sectionTitle": {
       "type": "string",
-      "default": "Vos questions, nos réponses"
+      "default": "FAQ"
     },
     "faqItems": {
       "type": "array",
